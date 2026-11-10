@@ -14,15 +14,11 @@ import com.nuvio.app.features.collection.FolderDetailScreen
 import com.nuvio.app.features.home.HomeCatalogSection
 import com.nuvio.app.features.settings.SettingsScreen
 import com.nuvio.app.navigation.AppRoute
-import com.nuvio.app.navigation.CollectionEditorPageRoute
 import com.nuvio.app.navigation.CollectionEditorRoute
 import com.nuvio.app.navigation.CollectionsRoute
 import com.nuvio.app.navigation.FolderDetailRoute
 import com.nuvio.app.navigation.NuvioNavigator
 import com.nuvio.app.navigation.PartyRoute
-import com.nuvio.app.navigation.SettingsPageRoute
-import nuvio.composeapp.generated.resources.Res
-import nuvio.composeapp.generated.resources.party_title
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -33,37 +29,6 @@ internal fun SettingsDestination(
 ) {
     val onBack = rememberGuardedPopBackStack(navController, route)
     content(onBack)
-}
-
-@Composable
-internal fun SettingsRootDestination(
-    route: SettingsPageRoute,
-    navController: NuvioNavigator,
-    useNativeNavigation: Boolean,
-    collectionsTitle: String,
-    onCheckForUpdates: (() -> Unit)?,
-    onTestUpdateBanner: (() -> Unit)?,
-) {
-    val onBack = rememberGuardedPopBackStack(navController, route)
-    val watchPartyTitle = stringResource(Res.string.party_title)
-    SettingsScreen(
-        modifier = Modifier.fillMaxSize(),
-        initialPageName = route.pageName,
-        rootActionsEnabled = false,
-        onNavigatePage = { pageName, title ->
-            navController.navigate(SettingsPageRoute(pageName, title))
-        },
-        onExternalBack = onBack,
-        showInternalHeader = !useNativeNavigation,
-        onCollectionsClick = {
-            navController.navigate(CollectionsRoute(collectionsTitle))
-        },
-        onWatchPartyClick = {
-            navController.navigate(PartyRoute(title = watchPartyTitle))
-        },
-        onCheckForUpdatesClick = onCheckForUpdates,
-        onTestUpdateBannerClick = onTestUpdateBanner,
-    )
 }
 
 @Composable
@@ -95,56 +60,13 @@ internal fun CollectionsDestination(
 internal fun CollectionEditorDestination(
     route: CollectionEditorRoute,
     navController: NuvioNavigator,
-    useNativeNavigation: Boolean,
 ) {
     val onBack = rememberGuardedPopBackStack(navController, route)
     CollectionEditorScreen(
         collectionId = route.collectionId,
         onBack = onBack,
-        initialPage = if (useNativeNavigation) CollectionEditorPage.Root else null,
-        onNavigateToPage = if (useNativeNavigation) {
-            { page, title ->
-                navController.navigate(
-                    CollectionEditorPageRoute(
-                        collectionId = route.collectionId,
-                        pageName = page.name,
-                        title = title,
-                    ),
-                )
-            }
-        } else {
-            null
-        },
-    )
-}
-
-@Composable
-internal fun CollectionEditorPageDestination(
-    route: CollectionEditorPageRoute,
-    navController: NuvioNavigator,
-) {
-    val page = remember(route.pageName) {
-        runCatching { CollectionEditorPage.valueOf(route.pageName) }.getOrNull()
-    }
-    val onBack = rememberGuardedPopBackStack(navController, route)
-    if (page == null || page == CollectionEditorPage.Root) {
-        LaunchedEffect(route) { onBack() }
-        return
-    }
-    CollectionEditorScreen(
-        collectionId = route.collectionId,
-        initialPage = page,
-        initializeRepository = false,
-        onBack = onBack,
-        onNavigateToPage = { nextPage, title ->
-            navController.navigate(
-                CollectionEditorPageRoute(
-                    collectionId = route.collectionId,
-                    pageName = nextPage.name,
-                    title = title,
-                ),
-            )
-        },
+        initialPage = null,
+        onNavigateToPage = null,
     )
 }
 

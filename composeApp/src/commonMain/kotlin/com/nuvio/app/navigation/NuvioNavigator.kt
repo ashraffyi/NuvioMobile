@@ -6,9 +6,6 @@ import kotlin.reflect.KClass
 
 internal class NuvioNavigator(
     private val backStack: NavBackStack<NavKey>,
-    private val onExternalNavigate: ((AppRoute, launchSingleTop: Boolean) -> Unit)? = null,
-    private val onExternalBack: (() -> Unit)? = null,
-    private val onExternalReplace: ((AppRoute) -> Unit)? = null,
     private val onLocalNavigate: ((AppRoute?, AppRoute) -> Unit)? = null,
     private val onLocalPop: (() -> Unit)? = null,
 ) {
@@ -27,15 +24,6 @@ internal class NuvioNavigator(
         if (popUpToRoute != null) {
             val targetIndex = backStack.indexOfLast { popUpToRoute.isInstance(it) }
             if (targetIndex >= 0) {
-                if (
-                    onExternalReplace != null &&
-                    resolvedOptions.popUpToInclusive &&
-                    targetIndex == backStack.lastIndex
-                ) {
-                    onExternalReplace(route)
-                    return
-                }
-
                 val firstRemovedIndex = if (resolvedOptions.popUpToInclusive) targetIndex else targetIndex + 1
                 if (firstRemovedIndex <= backStack.lastIndex) {
                     backStack.subList(firstRemovedIndex, backStack.size).clear()
@@ -44,12 +32,8 @@ internal class NuvioNavigator(
         }
 
         if (resolvedOptions.launchSingleTop && currentRoute == route) return
-        if (onExternalNavigate != null) {
-            onExternalNavigate.invoke(route, resolvedOptions.launchSingleTop)
-        } else {
-            onLocalNavigate?.invoke(currentRoute, route)
-            backStack.add(route)
-        }
+        onLocalNavigate?.invoke(currentRoute, route)
+        backStack.add(route)
     }
 
     fun popBackStack(expectedRoute: AppRoute? = null): Boolean {
@@ -59,8 +43,7 @@ internal class NuvioNavigator(
             backStack.removeAt(backStack.lastIndex)
             return true
         }
-        onExternalBack?.invoke()
-        return onExternalBack != null
+        return false
     }
 }
 

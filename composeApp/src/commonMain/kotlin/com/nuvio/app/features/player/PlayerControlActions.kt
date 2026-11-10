@@ -18,7 +18,6 @@ import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
 import androidx.compose.material.icons.automirrored.rounded.OpenInNew
 import androidx.compose.material.icons.automirrored.rounded.Toc
-import androidx.compose.material.icons.rounded.Build
 import androidx.compose.material.icons.rounded.Flag
 import androidx.compose.material.icons.rounded.Groups
 import androidx.compose.material.icons.rounded.Info
@@ -117,7 +116,6 @@ internal fun PlayerControlActions(
     onNextEpisodeClick: (() -> Unit)?,
     onSpeedClick: () -> Unit,
     onResizeModeClick: () -> Unit,
-    onVideoSettingsClick: (() -> Unit)?,
     onOpenInExternalPlayer: (() -> Unit)?,
     onStreamInfoClick: () -> Unit,
     onSubmitIntroClick: (() -> Unit)?,
@@ -134,7 +132,6 @@ internal fun PlayerControlActions(
         onNextEpisodeClick = onNextEpisodeClick,
         onSpeedClick = onSpeedClick,
         onResizeModeClick = onResizeModeClick,
-        onVideoSettingsClick = onVideoSettingsClick,
         onOpenInExternalPlayer = onOpenInExternalPlayer,
         onStreamInfoClick = onStreamInfoClick,
         onSubmitIntroClick = onSubmitIntroClick,
@@ -235,7 +232,6 @@ internal fun playerControlActions(
     onNextEpisodeClick: (() -> Unit)?,
     onSpeedClick: () -> Unit,
     onResizeModeClick: () -> Unit,
-    onVideoSettingsClick: (() -> Unit)?,
     onOpenInExternalPlayer: (() -> Unit)?,
     onStreamInfoClick: () -> Unit,
     onSubmitIntroClick: (() -> Unit)?,
@@ -291,12 +287,6 @@ internal fun playerControlActions(
             stringResource(Res.string.cd_stream_info), onStreamInfoClick,
             icon = Icons.Rounded.Info,
         ),
-        onVideoSettingsClick?.let {
-            PlayerControlAction(
-                stringResource(Res.string.player_action_video_settings), it,
-                icon = Icons.Rounded.Build,
-            )
-        },
         onSubmitIntroClick?.let {
             PlayerControlAction(
                 stringResource(Res.string.submit_intro_action), it,

@@ -596,9 +596,6 @@
     <string name="settings_licenses_attributions_mdblist_body">Nuvio koristi MDBList za ocjene, povijest gledanja i praćenje reprodukcije. Nuvio nije povezan s MDBListom niti ga MDBList podržava.</string>
     <string name="settings_licenses_attributions_introdb_title">IntroDB</string>
     <string name="settings_licenses_attributions_introdb_body">Nuvio koristi IntroDB API za vremenske oznake uvoda, rekapitulacija, odjavnih špica i najava koje pruža zajednica, a koje se koriste za kontrole preskakanja. Nuvio nije povezan s IntroDB-om niti ga IntroDB podržava.</string>
-    <string name="settings_licenses_attributions_mpvkit_title">MPVKit</string>
-    <string name="settings_licenses_attributions_mpvkit_body">Koristi se za reprodukciju na iOS verzijama.</string>
-    <string name="settings_licenses_attributions_mpvkit_license">Sam izvorni kôd MPVKit licenciran je pod LGPL v3.0. Paketi MPVKit, uključujući biblioteke libmpv i FFmpeg, također su licencirani pod LGPL v3.0.</string>
     <string name="settings_licenses_attributions_exoplayer_title">AndroidX Media3 ExoPlayer 1.8.0</string>
     <string name="settings_licenses_attributions_exoplayer_body">Koristi se za reprodukciju na Android verzijama.</string>
     <string name="settings_licenses_attributions_exoplayer_license">Licencirano pod licencom Apache License, verzija 2.0.</string>
@@ -676,8 +673,6 @@
     <string name="settings_appearance_app_language">Jezik aplikacije</string>
     <string name="settings_appearance_app_language_device">Jezik uređaja</string>
     <string name="settings_appearance_app_language_sheet_title">Odaberite jezik</string>
-    <string name="settings_appearance_app_language_restart_title">Potrebno ponovno pokretanje</string>
-    <string name="settings_appearance_app_language_restart_message">Zatvorite i ponovno otvorite aplikaciju kako biste ažurirali izgled za ovaj jezik.</string>
     <string name="settings_appearance_nav_bar_style">Navigacijska traka</string>
     <string name="settings_appearance_nav_bar_style_sheet_title">Stil navigacijske trake</string>
     <string name="settings_nav_bar_glow">Sjaj stakla</string>
@@ -692,8 +687,6 @@
     <string name="settings_nav_bar_style_compact">Uvijek kompaktno</string>
     <string name="settings_nav_bar_style_classic">Klasično</string>
     <string name="settings_appearance_continue_watching_description">Postavke za odjeljak Nastavi gledati.</string>
-    <string name="settings_appearance_liquid_glass">Tekuće staklo</string>
-    <string name="settings_appearance_liquid_glass_description">Koristi izvornu iPhone traku s karticama na sustavu iOS 26 i novijima.</string>
     <string name="settings_appearance_poster_customization_description">Prilagodite širinu kartice i zaobljenost kuteva.</string>
     <string name="settings_appearance_section_display">ZASLON</string>
     <string name="settings_appearance_section_home">POČETNA</string>
@@ -1083,14 +1076,12 @@
     <string name="settings_playback_enable_libass">Koristi libass za ASS/SSA titlove</string>
     <string name="settings_playback_enable_libass_description">Eksperimentalno: napredno renderiranje ASS/SSA (stilovi, pozicioniranje, animacije)</string>
     <string name="settings_playback_external_player">Vanjski reproduktor</string>
-    <string name="settings_playback_external_player_app">Aplikacija vanjskog reproduktora</string>
     <string name="settings_playback_external_player_description_android">Otvori novu reprodukciju pomoću zadane video aplikacije za Android ili birača sustava.</string>
     <string name="settings_playback_external_player_description_ios">Otvori novu reprodukciju s odabranim instaliranim reproduktorom.</string>
     <string name="settings_playback_external_player_forward_subtitles">Proslijedi titlove vanjskom reproduktoru</string>
     <string name="settings_playback_external_player_forward_subtitles_description">Dohvati titlove dodataka na vašem željenom jeziku i proslijedi ih vanjskom reproduktoru.</string>
     <string name="settings_playback_external_player_send_skip_segments">Pošalji vremenske oznake za uvod i odjavu</string>
     <string name="settings_playback_external_player_send_skip_segments_description">Pošalji sve dostupne vremenske oznake preskakanja za epizode i filmove. Vanjski reproduktor kontrolira preskakanje, neovisno o ovim postavkama.</string>
-    <string name="settings_playback_external_player_none_available">Nema instaliranih podržanih vanjskih reproduktora</string>
     <string name="settings_playback_player_preference">Reproduktor</string>
     <string name="settings_playback_player_preference_internal">Ugrađeni</string>
     <string name="settings_playback_player_preference_external">Vanjski</string>
@@ -2013,49 +2004,8 @@
     <string name="unit_bytes_gb">GB</string>
     <!-- Pristupačnost kontrola reproduktora -->
     <string name="player_action_submit_intro">Pošalji uvod</string>
-    <string name="player_action_video_settings">Video postavke</string>
     <!-- Medijateka u oblaku -->
     <string name="cloud_library_provider_unavailable">Medijateka u oblaku nije dostupna za %1$s.</string>
-    <!-- Modalni prozor za iOS video postavke -->
-    <string name="player_video_settings_title">Video</string>
-    <string name="player_video_settings_reset_tuning">Poništi prilagodbe</string>
-    <string name="player_video_settings_output_preset">Predložak izlaza</string>
-    <string name="player_video_settings_hdr_peak_detection">Detekcija vršnog HDR-a</string>
-    <string name="player_video_settings_hdr_peak_detection_desc">Procijeni vršnu HDR svjetlinu kada su metapodaci netočni ili nedostaju.</string>
-    <string name="player_video_settings_tone_mapping">Mapiranje tonova</string>
-    <string name="player_video_settings_deband">Uklanjanje pruga (Deband)</string>
-    <string name="player_video_settings_deband_desc">Smanji pojavu linija boja uz manji utjecaj na performanse.</string>
-    <string name="player_video_settings_interpolation">Interpolacija kadrova</string>
-    <string name="player_video_settings_interpolation_desc">Glatko kretanje kada mpv može čisto koristiti sinkronizaciju zaslona.</string>
-    <string name="player_video_settings_brightness">Svjetlina</string>
-    <string name="player_video_settings_contrast">Kontrast</string>
-    <string name="player_video_settings_saturation">Zasićenost</string>
-    <string name="player_video_settings_gamma">Gama</string>
-    <!-- iOS predlošci video izlaza -->
-    <string name="player_ios_preset_native_edr_label">Izvorni EDR</string>
-    <string name="player_ios_preset_native_edr_desc">Najbolje za iPhone i iPad uređaje s podrškom za HDR.</string>
-    <string name="player_ios_preset_sdr_tone_mapped_label">SDR mapiran tonovima</string>
-    <string name="player_ios_preset_sdr_tone_mapped_desc">Predvidljiviji bijeli i crni tonovi na SDR zaslonima.</string>
-    <string name="player_ios_preset_compatibility_label">Kompatibilnost</string>
-    <string name="player_ios_preset_compatibility_desc">Najbliže starijem ponašanju iOS MPV-a.</string>
-    <string name="player_ios_preset_custom_label">Prilagođeno</string>
-    <string name="player_ios_preset_custom_desc">Koristite svoje napredne vrijednosti u nastavku.</string>
-    <string name="player_ios_hardware_decoder_off">Isključeno</string>
-    <!-- Postavke reprodukcije za iOS video izlaz -->
-    <string name="settings_playback_ios_video_output">iOS VIDEO IZLAZ</string>
-    <string name="settings_playback_ios_hardware_decoder">Hardverski dekoder</string>
-    <string name="settings_playback_ios_extended_dynamic_range">Prošireni dinamički raspon</string>
-    <string name="settings_playback_ios_extended_dynamic_range_desc">Zadani Metal način izlaza za nove sesije reprodukcije.</string>
-    <string name="settings_playback_ios_display_color_hint">Savjet o prostoru boja zaslona</string>
-    <string name="settings_playback_ios_display_color_hint_desc">Dopusti mpv-u da prema zadanim postavkama cilja aktivni prostor boja zaslona.</string>
-    <string name="settings_playback_ios_target_primaries">Ciljne primarne boje</string>
-    <string name="settings_playback_ios_target_transfer">Ciljni prijenos</string>
-    <!-- Postavke reprodukcije za iOS audio izlaz -->
-    <string name="settings_playback_ios_audio_output_section">iOS AUDIO IZLAZ</string>
-    <string name="settings_playback_ios_audio_output">Audio izlaz</string>
-    <string name="settings_playback_ios_audio_output_auto_desc">Koristi AudioUnit dok je AVFoundation izlaz privremeno onemogućen.</string>
-    <string name="settings_playback_ios_audio_output_avfoundation_desc">Eksperimentalna podrška za prostorni zvuk i višekanalni izlaz.</string>
-    <string name="settings_playback_ios_audio_output_audiounit_desc">Koristi standardni AudioUnit izlaz.</string>
     <!-- Debrid upravljanje rezultatima -->
     <string name="settings_debrid_section_result_management">UPRAVLJANJE REZULTATIMA</string>
     <string name="settings_debrid_max_results">Maksimalan broj rezultata</string>
@@ -2154,11 +2104,6 @@
     <string name="submit_intro_end_time">ZAVRŠNO VRIJEME (MM:SS)</string>
     <string name="submit_intro_submit">Pošalji</string>
     <string name="submit_intro_capture">Snimi</string>
-    <!-- iOS napredna reprodukcija -->
-    <string name="settings_playback_ios_hw_decoder_dialog">Hardverski dekoder</string>
-    <string name="settings_playback_ios_audio_output_dialog">Audio izlaz</string>
-    <string name="settings_playback_ios_target_primaries_dialog">Ciljne primarne boje</string>
-    <string name="settings_playback_ios_target_transfer_dialog">Ciljni prijenos</string>
     <!-- Uređivač zbirki -->
     <string name="collections_editor_resolved_trakt_list">Razriješeni Trakt popis</string>
     <string name="collections_editor_tmdb_discover">TMDB otkrivanje</string>
@@ -2216,17 +2161,12 @@
     <string name="details_runtime_hours_minutes">%1$dh %2$dm</string>
     <string name="details_runtime_hours_only">%1$dh</string>
     <string name="details_runtime_minutes_only">%1$dm</string>
-    <string name="downloads_error_finalize_file_failed">Dovršavanje datoteke preuzimanja nije uspjelo</string>
-    <string name="downloads_error_open_partial_file_failed">Otvaranje djelomične datoteke preuzimanja nije uspjelo</string>
-    <string name="downloads_error_partial_file_not_open">Djelomična datoteka preuzimanja nije otvorena</string>
-    <string name="downloads_error_write_partial_file_failed">Zapisivanje u djelomičnu datoteku preuzimanja nije uspjelo</string>
     <string name="library_local_tab_title">Nuvio medijateka</string>
     <string name="network_connection_issue">Problem s vezom</string>
     <string name="network_empty_response_body">Prazno tijelo odgovora</string>
     <string name="network_please_check_connection">Provjerite vezu i pokušajte ponovno.</string>
     <string name="network_request_failed_http">Zahtjev nije uspio s HTTP statusom %1$d</string>
     <string name="player_addon_subtitle_display_format">%1$s (%2$s)</string>
-    <string name="player_error_mpv_unavailable">MPV pogon reproduktora nije dostupan. Ponovno izgradite aplikaciju.</string>
     <string name="player_error_unable_to_play_stream">Nije moguće reproducirati ovaj stream.</string>
     <string name="plugins_badge_disabled">Priključci onemogućeni</string>
     <string name="plugins_badge_enabled">Priključci omogućeni</string>

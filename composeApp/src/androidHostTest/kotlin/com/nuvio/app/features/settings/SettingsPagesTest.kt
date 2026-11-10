@@ -103,7 +103,6 @@ class SettingsPagesTest {
                 LazyColumn(Modifier.fillMaxSize()) {
                     layoutSettingsContent(
                         isTablet = false,
-                        liquidGlassNativeTabBarSupported = false,
                         onHomescreenClick = { opened = "home" },
                         onMetaScreenClick = { opened = "details" },
                         onStreamsClick = { opened = "streams" },
@@ -217,7 +216,6 @@ class SettingsPagesTest {
                     supportersContributorsPageEnabled = true,
                     accountDeletionEnabled = true,
                     personalMediaAddonCopyEnabled = true,
-                    liquidGlassNativeTabBarSupported = true,
                     switchProfileAvailable = true,
                     checkForUpdatesAvailable = true,
                 )
@@ -232,7 +230,6 @@ class SettingsPagesTest {
                 "playback-auto-switch-engine" to SettingsPage.PlaybackPlayer,
                 "playback-libass-render-mode" to SettingsPage.PlaybackSubtitles,
                 "playback-custom-buffers" to SettingsPage.PlaybackBuffer,
-                "liquid-glass" to SettingsPage.Layout,
                 "navigation-bar" to SettingsPage.Layout,
                 "app-icon" to SettingsPage.Appearance,
             ).forEach { (key, page) ->

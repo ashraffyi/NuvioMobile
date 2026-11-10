@@ -53,7 +53,6 @@ import com.nuvio.app.core.ui.LocalNuvioBottomNavigationOverlayPadding
 import com.nuvio.app.core.ui.NuvioScreen
 import com.nuvio.app.core.ui.NuvioScreenHeader
 import com.nuvio.app.core.ui.PlatformBackHandler
-import com.nuvio.app.core.ui.isLiquidGlassNativeTabBarSupported
 import com.nuvio.app.features.addons.AddonRepository
 import com.nuvio.app.features.details.MetaScreenSettingsRepository
 import com.nuvio.app.features.details.MetaScreenSettingsUiState
@@ -87,10 +86,8 @@ import com.nuvio.app.features.tmdb.TmdbSettings
 import com.nuvio.app.features.tmdb.TmdbSettingsRepository
 import com.nuvio.app.features.watchprogress.ContinueWatchingPreferencesRepository
 import com.nuvio.app.features.watchprogress.ContinueWatchingPreferencesUiState
-import com.nuvio.app.navigation.LocalUseNativeNavigation
 import com.nuvio.app.features.party.PartyRepository
 import com.nuvio.app.features.p2p.P2pSettingsRepository
-import com.nuvio.app.isIos
 import nuvio.composeapp.generated.resources.Res
 import nuvio.composeapp.generated.resources.compose_settings_page_root
 import kotlinx.coroutines.delay
@@ -114,7 +111,6 @@ private fun SettingsPage.isEnabledByPolicy(): Boolean =
     when (this) {
         SettingsPage.SupportersContributors -> AppFeaturePolicy.supportersContributorsPageEnabled
         SettingsPage.PlaybackP2p -> P2pSettingsRepository.isVisible
-        SettingsPage.PlaybackBuffer -> !isIos
         else -> true
     }
 
@@ -164,10 +160,6 @@ fun SettingsScreen(
             ThemeSettingsRepository.selectedTheme
         }.collectAsStateWithLifecycle()
         val amoledEnabled by remember { ThemeSettingsRepository.amoledEnabled }.collectAsStateWithLifecycle()
-        val useNativeNavigation = LocalUseNativeNavigation.current
-        val liquidGlassNativeTabBarSupported = remember(useNativeNavigation) {
-            !useNativeNavigation && isLiquidGlassNativeTabBarSupported()
-        }
         val selectedAppLanguage by remember { ThemeSettingsRepository.selectedAppLanguage }.collectAsStateWithLifecycle()
         val appIconState by remember {
             AppIconRepository.ensureLoaded()
@@ -391,7 +383,6 @@ fun SettingsScreen(
                         onThemeSelected = ThemeSettingsRepository::setTheme,
                         amoledEnabled = amoledEnabled,
                         onAmoledToggle = ThemeSettingsRepository::setAmoled,
-                        liquidGlassNativeTabBarSupported = liquidGlassNativeTabBarSupported,
                         appIconState = appIconState,
                         onAppIconSelected = onAppIconSelected,
                         onAppIconFailureDismissed = AppIconRepository::clearFailure,
@@ -435,7 +426,6 @@ fun SettingsScreen(
                         onThemeSelected = ThemeSettingsRepository::setTheme,
                         amoledEnabled = amoledEnabled,
                         onAmoledToggle = ThemeSettingsRepository::setAmoled,
-                        liquidGlassNativeTabBarSupported = liquidGlassNativeTabBarSupported,
                         appIconState = appIconState,
                         onAppIconSelected = onAppIconSelected,
                         onAppIconFailureDismissed = AppIconRepository::clearFailure,
@@ -491,7 +481,6 @@ private fun MobileSettingsScreen(
     onThemeSelected: (AppTheme) -> Unit,
     amoledEnabled: Boolean,
     onAmoledToggle: (Boolean) -> Unit,
-    liquidGlassNativeTabBarSupported: Boolean,
     appIconState: AppIconSettingsState,
     onAppIconSelected: (AppIconOption) -> Unit,
     onAppIconFailureDismissed: () -> Unit,
@@ -621,7 +610,6 @@ private fun MobileSettingsScreen(
                                 supportersContributorsPageEnabled = AppFeaturePolicy.supportersContributorsPageEnabled,
                                 accountDeletionEnabled = AppFeaturePolicy.accountDeletionEnabled,
                                 personalMediaAddonCopyEnabled = AppFeaturePolicy.personalMediaAddonCopyEnabled,
-                                liquidGlassNativeTabBarSupported = liquidGlassNativeTabBarSupported,
                                 switchProfileAvailable = onSwitchProfile != null,
                                 checkForUpdatesAvailable = onCheckForUpdatesClick != null,
                             )
@@ -684,7 +672,6 @@ private fun MobileSettingsScreen(
                 )
                 SettingsPage.Layout -> layoutSettingsContent(
                     isTablet = false,
-                    liquidGlassNativeTabBarSupported = liquidGlassNativeTabBarSupported,
                     onHomescreenClick = onHomescreenClick,
                     onMetaScreenClick = onMetaScreenClick,
                     onStreamsClick = { onPageChange(SettingsPage.Streams) },
@@ -839,7 +826,6 @@ private fun TabletSettingsScreen(
     onThemeSelected: (AppTheme) -> Unit,
     amoledEnabled: Boolean,
     onAmoledToggle: (Boolean) -> Unit,
-    liquidGlassNativeTabBarSupported: Boolean,
     appIconState: AppIconSettingsState,
     onAppIconSelected: (AppIconOption) -> Unit,
     onAppIconFailureDismissed: () -> Unit,
@@ -1021,7 +1007,6 @@ private fun TabletSettingsScreen(
                                     supportersContributorsPageEnabled = AppFeaturePolicy.supportersContributorsPageEnabled,
                                     accountDeletionEnabled = AppFeaturePolicy.accountDeletionEnabled,
                                     personalMediaAddonCopyEnabled = AppFeaturePolicy.personalMediaAddonCopyEnabled,
-                                    liquidGlassNativeTabBarSupported = liquidGlassNativeTabBarSupported,
                                     switchProfileAvailable = onSwitchProfile != null,
                                     checkForUpdatesAvailable = onCheckForUpdatesClick != null,
                                 )
@@ -1085,7 +1070,6 @@ private fun TabletSettingsScreen(
                     )
                     SettingsPage.Layout -> layoutSettingsContent(
                         isTablet = true,
-                        liquidGlassNativeTabBarSupported = liquidGlassNativeTabBarSupported,
                         onHomescreenClick = { openInlinePage(SettingsPage.Homescreen) },
                         onMetaScreenClick = { openInlinePage(SettingsPage.MetaScreen) },
                         onStreamsClick = { openInlinePage(SettingsPage.Streams) },

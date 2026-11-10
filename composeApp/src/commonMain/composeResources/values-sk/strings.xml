@@ -478,9 +478,6 @@
     <string name="settings_licenses_attributions_mdblist_body">Nuvio používa MDBList pre hodnotenia a dáta externých poskytovateľov skóre. Nuvio nie je pridružený k MDBList ani ním schválený.</string>
     <string name="settings_licenses_attributions_introdb_title">IntroDB</string>
     <string name="settings_licenses_attributions_introdb_body">Nuvio používa API IntroDB pre komunitou poskytované časové pečiatky intro, rekapitulácie, kreditov a náhľadov používaných ovládacími prvkami preskočenia. Nuvio nie je pridružený k IntroDB ani ním schválený.</string>
-    <string name="settings_licenses_attributions_mpvkit_title">MPVKit</string>
-    <string name="settings_licenses_attributions_mpvkit_body">Používa sa na prehrávanie v zostavách iOS.</string>
-    <string name="settings_licenses_attributions_mpvkit_license">Samotný zdrojový kód MPVKit je licencovaný pod LGPL v3.0. Balíky MPVKit vrátane knižníc libmpv a FFmpeg sú tiež licencované pod LGPL v3.0.</string>
     <string name="settings_licenses_attributions_exoplayer_title">AndroidX Media3 ExoPlayer 1.8.0</string>
     <string name="settings_licenses_attributions_exoplayer_body">Používa sa na prehrávanie v zostavách Android.</string>
     <string name="settings_licenses_attributions_exoplayer_license">Licencované pod Apache License, Version 2.0.</string>
@@ -542,8 +539,6 @@
     <string name="settings_appearance_app_language">Jazyk aplikácie</string>
     <string name="settings_appearance_app_language_sheet_title">Vybrať jazyk</string>
     <string name="settings_appearance_continue_watching_description">Nastavenia sekcie Pokračovať v sledovaní.</string>
-    <string name="settings_appearance_liquid_glass">Liquid Glass</string>
-    <string name="settings_appearance_liquid_glass_description">Použiť natívny panel záložiek iPhone na iOS 26 a novšom. Okamžité prepínanie profilov z panela záložiek nie je dostupné, keď je toto zapnuté.</string>
     <string name="settings_appearance_poster_customization_description">Nastaviť šírku karty a polomer rohov.</string>
     <string name="settings_appearance_section_display">ZOBRAZENIE</string>
     <string name="settings_appearance_section_home">DOMOV</string>
@@ -840,12 +835,10 @@
     <string name="settings_playback_enable_libass">Použiť libass pre titulky ASS/SSA</string>
     <string name="settings_playback_enable_libass_description">Experimentálne: pokročilé vykresľovanie ASS/SSA (štýly, polohovanie, animácie)</string>
     <string name="settings_playback_external_player">Externý prehrávač</string>
-    <string name="settings_playback_external_player_app">Aplikácia externého prehrávača</string>
     <string name="settings_playback_external_player_description_android">Otvoriť nové prehrávanie s predvolenou video aplikáciou Androidu alebo systémovým výberom.</string>
     <string name="settings_playback_external_player_description_ios">Otvoriť nové prehrávanie s vybraným nainštalovaným prehrávačom.</string>
     <string name="settings_playback_external_player_forward_subtitles">Preposlať titulky do externého prehrávača</string>
     <string name="settings_playback_external_player_forward_subtitles_description">Načítať titulky doplnku vo vašom preferovanom jazyku a odovzdať ich externému prehrávači.</string>
-    <string name="settings_playback_external_player_none_available">Nie sú nainštalované žiadne podporované externé prehrávače</string>
     <string name="settings_playback_player_preference">Prehrávač</string>
     <string name="settings_playback_player_preference_internal">Interný</string>
     <string name="settings_playback_player_preference_external">Externý</string>
@@ -1565,49 +1558,8 @@
     <string name="unit_bytes_gb">GB</string>
     <!-- PlayerControls a11y -->
     <string name="player_action_submit_intro">Odoslať intro</string>
-    <string name="player_action_video_settings">Nastavenia videa</string>
     <!-- CloudLibrary -->
     <string name="cloud_library_provider_unavailable">Cloudová knižnica nie je dostupná pre %1$s.</string>
-    <!-- Player iOS video settings modal -->
-    <string name="player_video_settings_title">Video</string>
-    <string name="player_video_settings_reset_tuning">Obnoviť ladenie</string>
-    <string name="player_video_settings_output_preset">Predvoľba výstupu</string>
-    <string name="player_video_settings_hdr_peak_detection">Detekcia vrcholu HDR</string>
-    <string name="player_video_settings_hdr_peak_detection_desc">Odhadnúť vrcholový jas HDR, keď sú metadáta chybné alebo chýbajú.</string>
-    <string name="player_video_settings_tone_mapping">Mapovanie tónov</string>
-    <string name="player_video_settings_deband">Deband</string>
-    <string name="player_video_settings_deband_desc">Znížiť farebné pruhovanie za malú cenu výkonu.</string>
-    <string name="player_video_settings_interpolation">Interpolácia snímkov</string>
-    <string name="player_video_settings_interpolation_desc">Plynulý pohyb, keď mpv môže čisto použiť synchronizáciu displeja.</string>
-    <string name="player_video_settings_brightness">Jas</string>
-    <string name="player_video_settings_contrast">Kontrast</string>
-    <string name="player_video_settings_saturation">Sýtosť</string>
-    <string name="player_video_settings_gamma">Gama</string>
-    <!-- iOS video output presets -->
-    <string name="player_ios_preset_native_edr_label">Natívny EDR</string>
-    <string name="player_ios_preset_native_edr_desc">Najlepšie pre iPhony a iPady s podporou HDR.</string>
-    <string name="player_ios_preset_sdr_tone_mapped_label">SDR s mapovaním tónov</string>
-    <string name="player_ios_preset_sdr_tone_mapped_desc">Predvídateľnejšie biele a čierne na výstupe v štýle SDR.</string>
-    <string name="player_ios_preset_compatibility_label">Kompatibilita</string>
-    <string name="player_ios_preset_compatibility_desc">Najbližšie k staršiemu správaniu iOS MPV.</string>
-    <string name="player_ios_preset_custom_label">Vlastné</string>
-    <string name="player_ios_preset_custom_desc">Použiť vaše pokročilé hodnoty nižšie.</string>
-    <string name="player_ios_hardware_decoder_off">Vypnuté</string>
-    <!-- Playback settings iOS video output -->
-    <string name="settings_playback_ios_video_output">VÝSTUP VIDEA iOS</string>
-    <string name="settings_playback_ios_hardware_decoder">Hardvérový dekodér</string>
-    <string name="settings_playback_ios_extended_dynamic_range">Rozšírený dynamický rozsah</string>
-    <string name="settings_playback_ios_extended_dynamic_range_desc">Predvolený režim výstupu Metal pre nové relácie prehrávania.</string>
-    <string name="settings_playback_ios_display_color_hint">Nápoveda farby displeja</string>
-    <string name="settings_playback_ios_display_color_hint_desc">Nechať mpv predvolene cieliť na aktívny farebný priestor displeja.</string>
-    <string name="settings_playback_ios_target_primaries">Cieľové primárne farby</string>
-    <string name="settings_playback_ios_target_transfer">Cieľový prenos</string>
-    <!-- Playback settings iOS audio output -->
-    <string name="settings_playback_ios_audio_output_section">VÝSTUP ZVUKU iOS</string>
-    <string name="settings_playback_ios_audio_output">Výstup zvuku</string>
-    <string name="settings_playback_ios_audio_output_auto_desc">Najprv vyskúšať AVFoundation, potom zálohovať na AudioUnit.</string>
-    <string name="settings_playback_ios_audio_output_avfoundation_desc">Experimentálna podpora priestorového zvuku a viackanálového výstupu.</string>
-    <string name="settings_playback_ios_audio_output_audiounit_desc">Použiť starší výstup AudioUnit.</string>
     <!-- Debrid Result Management section -->
     <string name="settings_debrid_section_result_management">SPRÁVA VÝSLEDKOV</string>
     <string name="settings_debrid_max_results">Maximálny počet výsledkov</string>
@@ -1706,11 +1658,6 @@
     <string name="submit_intro_end_time">KONCOVÝ ČAS (MM:SS)</string>
     <string name="submit_intro_submit">Odoslať</string>
     <string name="submit_intro_capture">Zachytiť</string>
-    <!-- iOS advanced playback -->
-    <string name="settings_playback_ios_hw_decoder_dialog">Hardvérový dekodér</string>
-    <string name="settings_playback_ios_audio_output_dialog">Zvukový výstup</string>
-    <string name="settings_playback_ios_target_primaries_dialog">Cieľové primárne farby</string>
-    <string name="settings_playback_ios_target_transfer_dialog">Cieľový prenos</string>
     <!-- Collection editor -->
     <string name="collections_editor_resolved_trakt_list">Vyriešený Trakt zoznam</string>
     <string name="collections_editor_tmdb_discover">TMDB Objavovanie</string>
@@ -1768,17 +1715,12 @@
     <string name="details_runtime_hours_minutes">%1$dh %2$dm</string>
     <string name="details_runtime_hours_only">%1$dh</string>
     <string name="details_runtime_minutes_only">%1$dm</string>
-    <string name="downloads_error_finalize_file_failed">Nepodarilo sa dokončiť súbor na stiahnutie</string>
-    <string name="downloads_error_open_partial_file_failed">Nepodarilo sa otvoriť čiastočný súbor na stiahnutie</string>
-    <string name="downloads_error_partial_file_not_open">Čiastočný súbor na stiahnutie nie je otvorený</string>
-    <string name="downloads_error_write_partial_file_failed">Nepodarilo sa zapísať čiastočný súbor na stiahnutie</string>
     <string name="library_local_tab_title">Nuvio Knižnica</string>
     <string name="network_connection_issue">Problém s pripojením</string>
     <string name="network_empty_response_body">Prázdne telo odpovede</string>
     <string name="network_please_check_connection">Skontrolujte prosím svoje pripojenie a skúste to znova.</string>
     <string name="network_request_failed_http">Požiadavka zlyhala s HTTP %1$d</string>
     <string name="player_addon_subtitle_display_format">%1$s (%2$s)</string>
-    <string name="player_error_mpv_unavailable">MPV prehrávač nie je k dispozícii. Prosím, znovu zostavte aplikáciu.</string>
     <string name="player_error_unable_to_play_stream">Nie je možné prehrať tento stream.</string>
     <string name="plugins_badge_disabled">Pluginy vypnuté</string>
     <string name="plugins_badge_enabled">Pluginy zapnuté</string>
@@ -2427,8 +2369,6 @@
     <string name="compose_player_panel_chapters">Kapitoly (%1$d)</string>
     <string name="compose_player_chapter_number">Kapitola %1$d</string>
     <string name="compose_player_chapter_remaining">Zostáva %1$s</string>
-    <string name="settings_appearance_app_language_restart_title">Vyžaduje sa reštart</string>
-    <string name="settings_appearance_app_language_restart_message">Zatvorte a znova otvorte aplikáciu na aktualizáciu rozloženia pre tento jazyk.</string>
     <string name="settings_poster_always_show_landscape_clearlogo">Vždy pozadie s logom pre plagáty na šírku</string>
     <string name="settings_mdb_show_on_hero">Použiť hodnotenia na úvodnej obrazovke</string>
     <string name="settings_mdb_show_on_hero_description">Zobrazovať hodnotenia MDBList na úvodnom banneri</string>

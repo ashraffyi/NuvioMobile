@@ -12,7 +12,6 @@ data class ExternalPlaybackResult(
     val durationMs: Long?,
     val endedByUser: Boolean,
     val playbackSession: WatchProgressPlaybackSession? = null,
-    val callbackId: String? = null,
 )
 
 @Composable

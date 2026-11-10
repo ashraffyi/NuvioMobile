@@ -10,7 +10,6 @@ import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -66,7 +65,6 @@ internal fun rememberGuardedPopBackStack(
 
 internal data class AppTabState(
     val searchListState: LazyListState,
-    val homeContentGeneration: Int = 0,
     val profileId: Int? = null,
     val searchFocusRequestCount: Int = 0,
     val rootActionsEnabled: Boolean = true,
@@ -130,21 +128,19 @@ internal fun AppTabHost(
     ) { tab ->
         when (tab) {
             AppScreenTab.Home -> {
-                key(state.homeContentGeneration) {
-                    HomeScreen(
-                        modifier = Modifier.fillMaxSize(),
-                        animateCollectionGifs = state.animateHomeCollectionGifs,
-                        scrollToTopRequests = requests.homeScrollToTopRequests,
-                        onCatalogClick = actions.onCatalogClick,
-                        onPosterClick = actions.onPosterClick,
-                        onPosterLongClick = actions.onPosterLongClick,
-                        onContinueWatchingClick = actions.onContinueWatchingClick,
-                        onContinueWatchingLongPress = actions.onContinueWatchingLongPress,
-                        continueWatchingDisintegrationRequest = state.continueWatchingDisintegrationRequest,
-                        onFolderClick = actions.onFolderClick,
-                        onFirstCatalogRendered = actions.onInitialHomeContentRendered,
-                    )
-                }
+                HomeScreen(
+                    modifier = Modifier.fillMaxSize(),
+                    animateCollectionGifs = state.animateHomeCollectionGifs,
+                    scrollToTopRequests = requests.homeScrollToTopRequests,
+                    onCatalogClick = actions.onCatalogClick,
+                    onPosterClick = actions.onPosterClick,
+                    onPosterLongClick = actions.onPosterLongClick,
+                    onContinueWatchingClick = actions.onContinueWatchingClick,
+                    onContinueWatchingLongPress = actions.onContinueWatchingLongPress,
+                    continueWatchingDisintegrationRequest = state.continueWatchingDisintegrationRequest,
+                    onFolderClick = actions.onFolderClick,
+                    onFirstCatalogRendered = actions.onInitialHomeContentRendered,
+                )
             }
 
             AppScreenTab.Search -> {

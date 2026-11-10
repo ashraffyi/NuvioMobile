@@ -84,16 +84,6 @@ enum class CollectionEditorPage {
     TraktSourcePicker,
 }
 
-fun disposeCollectionEditorPage(page: CollectionEditorPage) {
-    when (page) {
-        CollectionEditorPage.Root -> Unit
-        CollectionEditorPage.FolderEditor -> CollectionEditorRepository.cancelFolderEdit()
-        CollectionEditorPage.CatalogPicker -> CollectionEditorRepository.hideCatalogPicker()
-        CollectionEditorPage.TmdbSourcePicker -> CollectionEditorRepository.hideTmdbSourcePicker()
-        CollectionEditorPage.TraktSourcePicker -> CollectionEditorRepository.hideTraktSourcePicker()
-    }
-}
-
 private val autoDismissedPickerPages = setOf(
     CollectionEditorPage.TmdbSourcePicker,
     CollectionEditorPage.TraktSourcePicker,

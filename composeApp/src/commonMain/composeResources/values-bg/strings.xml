@@ -634,9 +634,6 @@
     <string name="settings_licenses_attributions_mdblist_body">Nuvio използва MDBList за оценки и данни от доставчици на външни резултати. Nuvio не е свързан с или одобрен от MDBList.</string>
     <string name="settings_licenses_attributions_introdb_title">IntroDB</string>
     <string name="settings_licenses_attributions_introdb_body">Nuvio използва IntroDB API за предоставени от общността времеви маркери за въведения, резюмета, надписи и прегледи, използвани от контролите за пропускане. Nuvio не е свързан с или одобрен от IntroDB.</string>
-    <string name="settings_licenses_attributions_mpvkit_title">MPVKit</string>
-    <string name="settings_licenses_attributions_mpvkit_body">Използва се за възпроизвеждане на iOS версии.</string>
-    <string name="settings_licenses_attributions_mpvkit_license">Самият изходен код на MPVKit е лицензиран под LGPL v3.0. Пакетите MPVKit, включително библиотеките libmpv и FFmpeg, също са лицензирани под LGPL v3.0.</string>
     <string name="settings_licenses_attributions_exoplayer_title">AndroidX Media3 ExoPlayer 1.8.0</string>
     <string name="settings_licenses_attributions_exoplayer_body">Използва се за възпроизвеждане на Android версии.</string>
     <string name="settings_licenses_attributions_exoplayer_license">Лицензиран под Apache License, Version 2.0.</string>
@@ -728,8 +725,6 @@
     <string name="settings_nav_bar_style_compact">Винаги компактна</string>
     <string name="settings_nav_bar_style_classic">Класическа</string>
     <string name="settings_appearance_continue_watching_description">Настройки за раздела „Продължи гледането".</string>
-    <string name="settings_appearance_liquid_glass">Liquid Glass</string>
-    <string name="settings_appearance_liquid_glass_description">Използвайте родния iPhone таб бар на iOS 26 и по-нови версии. При активирана опция, незабавното превключване на профила от таб бара не е налично.</string>
     <string name="settings_appearance_poster_customization_description">Настройки за ширината на картичката и радиуса на ъглите.</string>
     <string name="settings_appearance_section_display">ДИСПЛЕЙ</string>
     <string name="settings_appearance_section_home">НАЧАЛО</string>
@@ -1107,14 +1102,12 @@
     <string name="settings_playback_enable_libass">Използвай libass за ASS/SSA субтитри</string>
     <string name="settings_playback_enable_libass_description">Експериментално: разширено ASS/SSA изобразяване (стилове, позициониране, анимации)</string>
     <string name="settings_playback_external_player">Външен плейър</string>
-    <string name="settings_playback_external_player_app">Приложение за външен плейър</string>
     <string name="settings_playback_external_player_description_android">Отвори ново възпроизвеждане с приложението за видео по подразбиране на Android или системния избор.</string>
     <string name="settings_playback_external_player_description_ios">Отвори ново възпроизвеждане с избрания инсталиран плейър.</string>
     <string name="settings_playback_external_player_forward_subtitles">Препрати субтитрите към външния плейър</string>
     <string name="settings_playback_external_player_forward_subtitles_description">Извличай субтитрите на добавките на предпочитания от вас език и ги предавай към външния плейър.</string>
     <string name="settings_playback_external_player_send_skip_segments">Изпращане на времеви маркери за интро и аутро</string>
     <string name="settings_playback_external_player_send_skip_segments_description">Предайте откритите времеви маркери за интро и аутро към външния плейър за автоматично прескачане. Работи само в плейъри, които го поддържат; останалите плейъри го игнорират.</string>
-    <string name="settings_playback_external_player_none_available">Няма инсталирани поддържани външни плейъри</string>
     <string name="settings_playback_player_preference">Плейър</string>
     <string name="settings_playback_player_preference_internal">Вграден</string>
     <string name="settings_playback_player_preference_external">Външен</string>
@@ -2008,49 +2001,8 @@
     <string name="unit_bytes_gb">ГБ</string>
 <!--  PlayerControls a11y  -->
     <string name="player_action_submit_intro">Изпрати въведение</string>
-    <string name="player_action_video_settings">Видео настройки</string>
 <!--  CloudLibrary  -->
     <string name="cloud_library_provider_unavailable">Облачната библиотека не е налична за %1$s.</string>
-<!--  Player iOS video settings modal  -->
-    <string name="player_video_settings_title">Видео</string>
-    <string name="player_video_settings_reset_tuning">Нулирай настройките</string>
-    <string name="player_video_settings_output_preset">Предварителна настройка на изхода</string>
-    <string name="player_video_settings_hdr_peak_detection">HDR пикова детекция</string>
-    <string name="player_video_settings_hdr_peak_detection_desc">Оценявай пиковата яркост на HDR, когато метаданните са лоши или липсват.</string>
-    <string name="player_video_settings_tone_mapping">Tone mapping</string>
-    <string name="player_video_settings_deband">Deband</string>
-    <string name="player_video_settings_deband_desc">Намали цветовото разслояване при малка цена за производителност.</string>
-    <string name="player_video_settings_interpolation">Интерполация на кадри</string>
-    <string name="player_video_settings_interpolation_desc">Плавно движение, когато mpv може да използва синхронизация с дисплея чисто.</string>
-    <string name="player_video_settings_brightness">Яркост</string>
-    <string name="player_video_settings_contrast">Контраст</string>
-    <string name="player_video_settings_saturation">Наситеност</string>
-    <string name="player_video_settings_gamma">Гама</string>
-<!--  iOS video output presets  -->
-    <string name="player_ios_preset_native_edr_label">Роден EDR</string>
-    <string name="player_ios_preset_native_edr_desc">Най-добър за iPhone и iPad с HDR поддръжка.</string>
-    <string name="player_ios_preset_sdr_tone_mapped_label">SDR с tone mapping</string>
-    <string name="player_ios_preset_sdr_tone_mapped_desc">По-предсказуеми бели и черни при SDR изход.</string>
-    <string name="player_ios_preset_compatibility_label">Съвместимост</string>
-    <string name="player_ios_preset_compatibility_desc">Най-близо до старото поведение на iOS MPV.</string>
-    <string name="player_ios_preset_custom_label">Персонализиран</string>
-    <string name="player_ios_preset_custom_desc">Използвай разширените стойности по-долу.</string>
-    <string name="player_ios_hardware_decoder_off">Изкл.</string>
-<!--  Playback settings iOS video output  -->
-    <string name="settings_playback_ios_video_output">iOS ВИДЕО ИЗХОД</string>
-    <string name="settings_playback_ios_hardware_decoder">Хардуерен декодер</string>
-    <string name="settings_playback_ios_extended_dynamic_range">Разширен динамичен обхват</string>
-    <string name="settings_playback_ios_extended_dynamic_range_desc">Режим на Metal изход по подразбиране за нови сесии на възпроизвеждане.</string>
-    <string name="settings_playback_ios_display_color_hint">Подсказка за цвят на дисплея</string>
-    <string name="settings_playback_ios_display_color_hint_desc">Нека mpv насочва цветовото пространство на активния дисплей по подразбиране.</string>
-    <string name="settings_playback_ios_target_primaries">Целеви примари</string>
-    <string name="settings_playback_ios_target_transfer">Целево пренасяне</string>
-<!--  Playback settings iOS audio output  -->
-    <string name="settings_playback_ios_audio_output_section">iOS АУДИО ИЗХОД</string>
-    <string name="settings_playback_ios_audio_output">Аудио изход</string>
-    <string name="settings_playback_ios_audio_output_auto_desc">Опитай AVFoundation първо, след това се върни към AudioUnit.</string>
-    <string name="settings_playback_ios_audio_output_avfoundation_desc">Експериментална поддръжка за Spatial Audio и многоканален изход.</string>
-    <string name="settings_playback_ios_audio_output_audiounit_desc">Използвай стария AudioUnit изход.</string>
 <!--  Debrid Result Management section  -->
     <string name="settings_debrid_section_result_management">УПРАВЛЕНИЕ НА РЕЗУЛТАТИТЕ</string>
     <string name="settings_debrid_max_results">Макс. резултати</string>
@@ -2149,11 +2101,6 @@
     <string name="submit_intro_end_time">КРАЙНО ВРЕМЕ (ММ:СС)</string>
     <string name="submit_intro_submit">Изпрати</string>
     <string name="submit_intro_capture">Запиши</string>
-<!--  iOS advanced playback  -->
-    <string name="settings_playback_ios_hw_decoder_dialog">Хардуерен декодер</string>
-    <string name="settings_playback_ios_audio_output_dialog">Аудио изход</string>
-    <string name="settings_playback_ios_target_primaries_dialog">Целеви примари</string>
-    <string name="settings_playback_ios_target_transfer_dialog">Целево пренасяне</string>
 <!--  Collection editor  -->
     <string name="collections_editor_resolved_trakt_list">Разрешен Trakt списък</string>
     <string name="collections_editor_tmdb_discover">TMDB Откриване</string>
@@ -2211,17 +2158,12 @@
     <string name="details_runtime_hours_minutes">%1$dч %2$dм</string>
     <string name="details_runtime_hours_only">%1$dч</string>
     <string name="details_runtime_minutes_only">%1$dм</string>
-    <string name="downloads_error_finalize_file_failed">Финализирането на файла за изтегляне не бе успешно</string>
-    <string name="downloads_error_open_partial_file_failed">Отварянето на частичния файл за изтегляне не бе успешно</string>
-    <string name="downloads_error_partial_file_not_open">Частичният файл за изтегляне не е отворен</string>
-    <string name="downloads_error_write_partial_file_failed">Записването на частичния файл за изтегляне не бе успешно</string>
     <string name="library_local_tab_title">Nuvio библиотека</string>
     <string name="network_connection_issue">Проблем с връзката</string>
     <string name="network_empty_response_body">Празно тяло на отговора</string>
     <string name="network_please_check_connection">Моля, проверете връзката си и опитайте отново.</string>
     <string name="network_request_failed_http">Заявката не бе успешна с HTTP %1$d</string>
     <string name="player_addon_subtitle_display_format">%1$s (%2$s)</string>
-    <string name="player_error_mpv_unavailable">MPV плейър двигателят не е наличен. Моля, прекомпилирайте приложението.</string>
     <string name="player_error_unable_to_play_stream">Източникът не може да се пусне.</string>
     <string name="plugins_badge_disabled">Плъгините са деактивирани</string>
     <string name="plugins_badge_enabled">Плъгините са активирани</string>

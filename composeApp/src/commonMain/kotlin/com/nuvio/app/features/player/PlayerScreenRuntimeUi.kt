@@ -33,7 +33,6 @@ import com.nuvio.app.features.p2p.formatP2pSpeed
 import com.nuvio.app.features.player.skip.internalSkipAction
 import com.nuvio.app.features.servers.ServerStreams
 import com.nuvio.app.features.streams.streamAddonInstanceId
-import com.nuvio.app.isIos
 import kotlinx.coroutines.launch
 import nuvio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
@@ -402,14 +401,6 @@ private fun PlayerScreenRuntime.RenderPlayerControls(
                 refreshTracks()
                 showAudioModal = true
             },
-            onVideoSettingsClick = if (isIos) {
-                {
-                    showVideoSettingsModal = true
-                    controlsVisible = true
-                }
-            } else {
-                null
-            },
             onSourcesClick = if (activeVideoId != null) { { openSourcesPanel() } } else null,
             onEpisodesClick = if (isSeries) { { openEpisodesPanel() } } else null,
             chapters = chapters,
@@ -696,12 +687,7 @@ private fun PlayerScreenRuntime.RenderPlayerModals(displayedPositionMs: Long) {
         onAutoSyncCueSelected = { cue -> applySubtitleAutoSyncCue(cue) },
         onAutoSyncReload = { loadSubtitleAutoSyncCues(force = true) },
         onSubtitleModalDismissed = { showSubtitleModal = false },
-        showVideoSettingsModal = showVideoSettingsModal,
         playerSettings = playerSettingsUiState,
-        onVideoSettingsChanged = {
-            playerController?.configureIosVideoOutput(PlayerSettingsRepository.uiState.value)
-        },
-        onVideoSettingsModalDismissed = { showVideoSettingsModal = false },
         showSourcesPanel = showSourcesPanel,
         sourceStreamsState = sourceStreamsState,
         contentTitle = title,

@@ -512,9 +512,6 @@
     <string name="settings_licenses_attributions_mdblist_body">Nuvio; puanlar ve dış kaynak puan verileri için MDBList'i kullanır. Nuvio'nun MDBList ile hiçbir bağı yoktur ve MDBList tarafından onaylanmamıştır.</string>
     <string name="settings_licenses_attributions_introdb_title">IntroDB</string>
     <string name="settings_licenses_attributions_introdb_body">Nuvio; jenerik ve geçme kontrolleri tarafından kullanılan, topluluk tarafından sağlanan giriş, özet ve önizleme zaman damgaları için IntroDB API'sini kullanır. Nuvio'nun IntroDB ile hiçbir bağı yoktur ve IntroDB tarafından onaylanmamıştır.</string>
-    <string name="settings_licenses_attributions_mpvkit_title">MPVKit</string>
-    <string name="settings_licenses_attributions_mpvkit_body">iOS sürümlerinde oynatma için kullanılır.</string>
-    <string name="settings_licenses_attributions_mpvkit_license">Sadece MPVKit kaynak kodu LGPL v3.0 kapsamında lisanslanmıştır. libmpv ve FFmpeg kütüphanelerini içeren MPVKit paketleri de LGPL v3.0 kapsamında lisanslanmıştır.</string>
     <string name="settings_licenses_attributions_exoplayer_title">AndroidX Media3 ExoPlayer 1.8.0</string>
     <string name="settings_licenses_attributions_exoplayer_body">Android sürümlerinde oynatma için kullanılır.</string>
     <string name="settings_licenses_attributions_exoplayer_license">Apache Lisansı, Sürüm 2.0 kapsamında lisanslanmıştır.</string>
@@ -598,8 +595,6 @@
     <string name="settings_nav_bar_style_compact">Her Zaman Sıkıştırılmış</string>
     <string name="settings_nav_bar_style_classic">Klasik</string>
     <string name="settings_appearance_continue_watching_description">İzlemeye Devam Et rafını göster, gizle ve stilini ayarla.</string>
-    <string name="settings_appearance_liquid_glass">Liquid Glass</string>
-    <string name="settings_appearance_liquid_glass_description">iOS 26 ve sonrasında yerel iPhone sekme çubuğunu kullan.</string>
     <string name="settings_appearance_poster_customization_description">Uygulama genelindeki poster kartlarının ortak genişliğini ve köşe yuvarlaklığını ayarla.</string>
     <string name="settings_appearance_section_display">EKRAN</string>
     <string name="settings_appearance_section_home">ANA SAYFA</string>
@@ -941,14 +936,12 @@
     <string name="settings_playback_enable_libass">libass'i aç</string>
     <string name="settings_playback_enable_libass_description">ASS/SSA altyazılarını varsayılan işleyici yerine libass ile göster.</string>
     <string name="settings_playback_external_player">Harici Oynatıcı</string>
-    <string name="settings_playback_external_player_app">Harici Oynatıcı Uygulaması</string>
     <string name="settings_playback_external_player_description_android">Yeni oynatmayı Android'in varsayılan video uygulamasıyla veya sistem seçicisiyle aç.</string>
     <string name="settings_playback_external_player_description_ios">Yeni oynatmayı seçilen yüklü oynatıcıyla aç.</string>
     <string name="settings_playback_external_player_forward_subtitles">Altyazıları Harici Oynatıcıya Aktar</string>
     <string name="settings_playback_external_player_forward_subtitles_description">Tercih ettiğiniz dildeki eklenti altyazılarını getirir ve harici oynatıcıya iletir.</string>
     <string name="settings_playback_external_player_send_skip_segments">Giriş ve Bitiş Zaman Damgalarını Gönder</string>
     <string name="settings_playback_external_player_send_skip_segments_description">Otomatik atlama için çözümlenmiş giriş ve bitiş zaman damgalarını harici oynatıcıya iletir. Yalnızca bunu destekleyen oynatıcılarda çalışır; diğer oynatıcılar bunu yok sayar.</string>
-    <string name="settings_playback_external_player_none_available">Yüklü ve desteklenen harici oynatıcı yok</string>
     <string name="settings_playback_player_preference">Oynatıcı</string>
     <string name="settings_playback_player_preference_internal">Dahili</string>
     <string name="settings_playback_player_preference_external">Harici</string>
@@ -1794,49 +1787,8 @@
     <string name="unit_bytes_gb">GB</string>
     <!-- PlayerControls a11y -->
     <string name="player_action_submit_intro">Jenerik Gönder</string>
-    <string name="player_action_video_settings">Video ayarları</string>
     <!-- CloudLibrary -->
     <string name="cloud_library_provider_unavailable">Bulut kütüphanesi %1$s için kullanılabilir değil.</string>
-    <!-- Player iOS video settings modal -->
-    <string name="player_video_settings_title">Video</string>
-    <string name="player_video_settings_reset_tuning">Ayarları sıfırla</string>
-    <string name="player_video_settings_output_preset">Çıkış önayarı</string>
-    <string name="player_video_settings_hdr_peak_detection">HDR tepe değeri tespiti</string>
-    <string name="player_video_settings_hdr_peak_detection_desc">Meta veriler hatalı veya eksik olduğunda HDR tepe parlaklığını tahmin edin.</string>
-    <string name="player_video_settings_tone_mapping">Ton haritalama</string>
-    <string name="player_video_settings_deband">Bantlaşma önleme</string>
-    <string name="player_video_settings_deband_desc">Küçük bir performans maliyetiyle renk bantlaşmasını azaltın.</string>
-    <string name="player_video_settings_interpolation">Kare interpolasyonu</string>
-    <string name="player_video_settings_interpolation_desc">mpv ekran senkronizasyonunu sorunsuz kullanabildiğinde hareketi yumuşatır.</string>
-    <string name="player_video_settings_brightness">Parlaklık</string>
-    <string name="player_video_settings_contrast">Kontrast</string>
-    <string name="player_video_settings_saturation">Doygunluk</string>
-    <string name="player_video_settings_gamma">Gama</string>
-    <!-- iOS video output presets -->
-    <string name="player_ios_preset_native_edr_label">Yerleşik EDR</string>
-    <string name="player_ios_preset_native_edr_desc">HDR destekli iPhone ve iPad'ler için en iyisidir.</string>
-    <string name="player_ios_preset_sdr_tone_mapped_label">SDR ton haritalanmış</string>
-    <string name="player_ios_preset_sdr_tone_mapped_desc">SDR tarzı çıkışta daha öngörülebilir beyazlar ve siyahlar.</string>
-    <string name="player_ios_preset_compatibility_label">Uyumluluk</string>
-    <string name="player_ios_preset_compatibility_desc">Eski iOS MPV davranışına en yakın olanı.</string>
-    <string name="player_ios_preset_custom_label">Özel</string>
-    <string name="player_ios_preset_custom_desc">Aşağıdaki gelişmiş değerlerinizi kullanın.</string>
-    <string name="player_ios_hardware_decoder_off">Kapalı</string>
-    <!-- Playback settings iOS video output -->
-    <string name="settings_playback_ios_video_output">iOS VİDEO ÇIKIŞI</string>
-    <string name="settings_playback_ios_hardware_decoder">Donanım kodu çözücü</string>
-    <string name="settings_playback_ios_extended_dynamic_range">Genişletilmiş dinamik aralık</string>
-    <string name="settings_playback_ios_extended_dynamic_range_desc">Yeni oynatma oturumları için varsayılan Metal çıkış modu.</string>
-    <string name="settings_playback_ios_display_color_hint">Ekran rengi ipucu</string>
-    <string name="settings_playback_ios_display_color_hint_desc">mpv'nin varsayılan olarak etkin ekran renk alanını hedeflemesine izin verin.</string>
-    <string name="settings_playback_ios_target_primaries">Hedef birincil renkler</string>
-    <string name="settings_playback_ios_target_transfer">Hedef aktarım fonksiyonu</string>
-    <!-- Playback settings iOS audio output -->
-    <string name="settings_playback_ios_audio_output_section">iOS SES ÇIKIŞI</string>
-    <string name="settings_playback_ios_audio_output">Ses çıkışı</string>
-    <string name="settings_playback_ios_audio_output_auto_desc">AVFoundation çıkışı geçici olarak devre dışıyken AudioUnit kullanın.</string>
-    <string name="settings_playback_ios_audio_output_avfoundation_desc">Uzamsal Ses ve çok kanallı çıkış için deneysel destek.</string>
-    <string name="settings_playback_ios_audio_output_audiounit_desc">Eski AudioUnit çıkışını kullanın.</string>
     <!-- Debrid Result Management section -->
     <string name="settings_debrid_section_result_management">SONUÇ YÖNETİMİ</string>
     <string name="settings_debrid_max_results">Maksimum sonuç</string>
@@ -1935,11 +1887,6 @@
     <string name="submit_intro_end_time">BİTİŞ ZAMANI (DK:SN)</string>
     <string name="submit_intro_submit">Gönder</string>
     <string name="submit_intro_capture">Yakala</string>
-    <!-- iOS advanced playback -->
-    <string name="settings_playback_ios_hw_decoder_dialog">Donanım kodu çözücü</string>
-    <string name="settings_playback_ios_audio_output_dialog">Ses çıkışı</string>
-    <string name="settings_playback_ios_target_primaries_dialog">Hedef birincil renkler</string>
-    <string name="settings_playback_ios_target_transfer_dialog">Hedef aktarım fonksiyonu</string>
     <!-- Collection editor -->
     <string name="collections_editor_resolved_trakt_list">Çözümlenmiş Trakt listesi</string>
     <string name="collections_editor_tmdb_discover">TMDB Keşfet</string>
@@ -1997,17 +1944,12 @@
     <string name="details_runtime_hours_minutes">%1$ds %2$ddk</string>
     <string name="details_runtime_hours_only">%1$ds</string>
     <string name="details_runtime_minutes_only">%1$ddk</string>
-    <string name="downloads_error_finalize_file_failed">İndirilen dosya tamamlanamadı</string>
-    <string name="downloads_error_open_partial_file_failed">Kısmi indirme dosyası açılamadı</string>
-    <string name="downloads_error_partial_file_not_open">Kısmi indirme dosyası açık değil</string>
-    <string name="downloads_error_write_partial_file_failed">Kısmi indirme dosyasına yazılamadı</string>
     <string name="library_local_tab_title">Nuvio Kitaplığı</string>
     <string name="network_connection_issue">Bağlantı sorunu</string>
     <string name="network_empty_response_body">Boş yanıt gövdesi</string>
     <string name="network_please_check_connection">Lütfen bağlantınızı kontrol edip tekrar deneyin.</string>
     <string name="network_request_failed_http">İstek HTTP %1$d hatası ile başarısız oldu</string>
     <string name="player_addon_subtitle_display_format">%1$s (%2$s)</string>
-    <string name="player_error_mpv_unavailable">MPV oynatıcı motoru mevcut değil. Lütfen uygulamayı yeniden derleyin.</string>
     <string name="player_error_unable_to_play_stream">Bu yayın oynatılamıyor.</string>
     <string name="plugins_badge_disabled">Eklentiler devre dışı</string>
     <string name="plugins_badge_enabled">Eklentiler etkin</string>
@@ -2296,8 +2238,6 @@ Bu özelliği tamamen kendi sorumluluğunuzda kullanırsınız. P2P istediğiniz
     <string name="settings_licenses_attributions_haze_license">Apache License, Sürüm 2.0 altında lisanslanmıştır.</string>
     <string name="action_support_nuvio">Nuvio'yu Destekle</string>
     <string name="episodes_unavailable">Mevcut Değil</string>
-    <string name="settings_appearance_app_language_restart_title">Yeniden başlatma gerekli</string>
-    <string name="settings_appearance_app_language_restart_message">Bu dilin düzenini güncellemek için uygulamayı kapatıp yeniden açın.</string>
     <string name="settings_nav_bar_glow">Cam parıltısı</string>
     <string name="settings_nav_bar_glow_description">Kayan çubuğun etrafına yumuşak ışık ekler.</string>
     <string name="settings_nav_bar_glow_on">Parıltı açık</string>

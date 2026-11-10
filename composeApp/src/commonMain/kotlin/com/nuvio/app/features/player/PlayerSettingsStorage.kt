@@ -3,8 +3,6 @@ package com.nuvio.app.features.player
 import kotlinx.serialization.json.JsonObject
 
 internal expect object PlayerSettingsStorage {
-    fun loadPendingExternalPlayback(): String?
-    fun savePendingExternalPlayback(value: String?)
     fun loadPlaybackBrightness(): Float?
     fun savePlaybackBrightness(level: Float)
     fun loadUseLegacyPlayerLayout(): Boolean?
@@ -176,36 +174,6 @@ internal expect object PlayerSettingsStorage {
     fun saveLibassRenderScale(scale: String)
     fun loadLibassRenderMode(): String?
     fun saveLibassRenderMode(mode: String)
-    fun loadIosVideoOutputPreset(): String?
-    fun saveIosVideoOutputPreset(preset: String)
-    fun loadIosToneMappingMode(): String?
-    fun saveIosToneMappingMode(mode: String)
-    fun loadIosTargetPrimaries(): String?
-    fun saveIosTargetPrimaries(primaries: String)
-    fun loadIosTargetTransfer(): String?
-    fun saveIosTargetTransfer(transfer: String)
-    fun loadIosHardwareDecoderMode(): String?
-    fun saveIosHardwareDecoderMode(mode: String)
-    fun loadIosAudioOutputMode(): String?
-    fun saveIosAudioOutputMode(mode: String)
-    fun loadIosExtendedDynamicRangeEnabled(): Boolean?
-    fun saveIosExtendedDynamicRangeEnabled(enabled: Boolean)
-    fun loadIosTargetColorspaceHintEnabled(): Boolean?
-    fun saveIosTargetColorspaceHintEnabled(enabled: Boolean)
-    fun loadIosHdrComputePeakEnabled(): Boolean?
-    fun saveIosHdrComputePeakEnabled(enabled: Boolean)
-    fun loadIosDebandEnabled(): Boolean?
-    fun saveIosDebandEnabled(enabled: Boolean)
-    fun loadIosInterpolationEnabled(): Boolean?
-    fun saveIosInterpolationEnabled(enabled: Boolean)
-    fun loadIosBrightness(): Int?
-    fun saveIosBrightness(value: Int)
-    fun loadIosContrast(): Int?
-    fun saveIosContrast(value: Int)
-    fun loadIosSaturation(): Int?
-    fun saveIosSaturation(value: Int)
-    fun loadIosGamma(): Int?
-    fun saveIosGamma(value: Int)
     fun exportToSyncPayload(): JsonObject
     fun replaceFromSyncPayload(payload: JsonObject)
 }

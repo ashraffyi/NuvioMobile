@@ -8,7 +8,6 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.nuvio.app.core.ui.floatingNavigationGlowSupported
 import com.nuvio.app.core.ui.labelRes
-import com.nuvio.app.isIos
 import nuvio.composeapp.generated.resources.Res
 import nuvio.composeapp.generated.resources.collections_header
 import nuvio.composeapp.generated.resources.compose_settings_page_continue_watching
@@ -18,8 +17,6 @@ import nuvio.composeapp.generated.resources.compose_settings_page_poster_customi
 import nuvio.composeapp.generated.resources.compose_settings_page_streams
 import nuvio.composeapp.generated.resources.compose_settings_root_streams_description
 import nuvio.composeapp.generated.resources.settings_appearance_continue_watching_description
-import nuvio.composeapp.generated.resources.settings_appearance_liquid_glass
-import nuvio.composeapp.generated.resources.settings_appearance_liquid_glass_description
 import nuvio.composeapp.generated.resources.settings_appearance_nav_bar_style
 import nuvio.composeapp.generated.resources.settings_appearance_poster_customization_description
 import nuvio.composeapp.generated.resources.settings_appearance_section_detail_page
@@ -35,7 +32,6 @@ import org.jetbrains.compose.resources.stringResource
 
 internal fun LazyListScope.layoutSettingsContent(
     isTablet: Boolean,
-    liquidGlassNativeTabBarSupported: Boolean,
     onHomescreenClick: () -> Unit,
     onMetaScreenClick: () -> Unit,
     onStreamsClick: () -> Unit,
@@ -109,57 +105,41 @@ internal fun LazyListScope.layoutSettingsContent(
             }
         }
     }
-    if (!isIos || liquidGlassNativeTabBarSupported) {
-        item {
-            var showNavBarStyleSheet by remember { mutableStateOf(false) }
-            val selectedNavBarStyle by ThemeSettingsRepository.navBarStyle.collectAsStateWithLifecycle()
-            val glowEnabled by ThemeSettingsRepository.navBarGlowEnabled.collectAsStateWithLifecycle()
-            val liquidGlassNativeTabBarEnabled by ThemeSettingsRepository.liquidGlassNativeTabBarEnabled.collectAsStateWithLifecycle()
-            val effectiveNavBarStyle = if (isTablet) NavBarStyle.COMPACT else selectedNavBarStyle
-            val navBarStyleAvailable = !isIos
-            SettingsSection(
-                title = stringResource(Res.string.settings_appearance_nav_bar_style),
-                isTablet = isTablet,
-            ) {
-                SettingsGroup(isTablet = isTablet) {
-                    if (liquidGlassNativeTabBarSupported) {
-                        SettingsSwitchRow(
-                            title = stringResource(Res.string.settings_appearance_liquid_glass),
-                            description = stringResource(Res.string.settings_appearance_liquid_glass_description),
-                            checked = liquidGlassNativeTabBarEnabled,
-                            isTablet = isTablet,
-                            onCheckedChange = ThemeSettingsRepository::setLiquidGlassNativeTabBar,
+    item {
+        var showNavBarStyleSheet by remember { mutableStateOf(false) }
+        val selectedNavBarStyle by ThemeSettingsRepository.navBarStyle.collectAsStateWithLifecycle()
+        val glowEnabled by ThemeSettingsRepository.navBarGlowEnabled.collectAsStateWithLifecycle()
+        val effectiveNavBarStyle = if (isTablet) NavBarStyle.COMPACT else selectedNavBarStyle
+        SettingsSection(
+            title = stringResource(Res.string.settings_appearance_nav_bar_style),
+            isTablet = isTablet,
+        ) {
+            SettingsGroup(isTablet = isTablet) {
+                SettingsNavigationRow(
+                    title = stringResource(Res.string.settings_appearance_nav_bar_style),
+                    description = if (floatingNavigationGlowSupported && effectiveNavBarStyle != NavBarStyle.CLASSIC) {
+                        stringResource(
+                            Res.string.settings_nav_bar_summary,
+                            stringResource(effectiveNavBarStyle.labelRes),
+                            stringResource(if (glowEnabled) Res.string.settings_nav_bar_glow_on else Res.string.settings_nav_bar_glow_off),
                         )
-                    }
-                    if (navBarStyleAvailable) {
-                        if (liquidGlassNativeTabBarSupported) SettingsGroupDivider(isTablet = isTablet)
-                        SettingsNavigationRow(
-                            title = stringResource(Res.string.settings_appearance_nav_bar_style),
-                            description = if (floatingNavigationGlowSupported && effectiveNavBarStyle != NavBarStyle.CLASSIC) {
-                                stringResource(
-                                    Res.string.settings_nav_bar_summary,
-                                    stringResource(effectiveNavBarStyle.labelRes),
-                                    stringResource(if (glowEnabled) Res.string.settings_nav_bar_glow_on else Res.string.settings_nav_bar_glow_off),
-                                )
-                            } else {
-                                stringResource(effectiveNavBarStyle.labelRes)
-                            },
-                            isTablet = isTablet,
-                            onClick = { showNavBarStyleSheet = true },
-                        )
-                    }
-                }
-            }
-            if (navBarStyleAvailable && showNavBarStyleSheet) {
-                NavigationBarSettingsSheet(
+                    } else {
+                        stringResource(effectiveNavBarStyle.labelRes)
+                    },
                     isTablet = isTablet,
-                    selectedStyle = effectiveNavBarStyle,
-                    onStyleSelected = ThemeSettingsRepository::setNavBarStyle,
-                    glowEnabled = glowEnabled,
-                    onGlowChanged = ThemeSettingsRepository::setNavBarGlowEnabled,
-                    onDismiss = { showNavBarStyleSheet = false },
+                    onClick = { showNavBarStyleSheet = true },
                 )
             }
+        }
+        if (showNavBarStyleSheet) {
+            NavigationBarSettingsSheet(
+                isTablet = isTablet,
+                selectedStyle = effectiveNavBarStyle,
+                onStyleSelected = ThemeSettingsRepository::setNavBarStyle,
+                glowEnabled = glowEnabled,
+                onGlowChanged = ThemeSettingsRepository::setNavBarGlowEnabled,
+                onDismiss = { showNavBarStyleSheet = false },
+            )
         }
     }
 }

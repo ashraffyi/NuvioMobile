@@ -21,7 +21,6 @@ import com.nuvio.app.features.player.AndroidPlaybackEngine
 import com.nuvio.app.features.player.ExternalPlayerApp
 import com.nuvio.app.features.player.ExternalPlayerPlatform
 import com.nuvio.app.features.player.PlayerSettingsRepository
-import com.nuvio.app.isIos
 import nuvio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
 import com.nuvio.app.features.player.PlayerSettingsUiState
@@ -32,10 +31,7 @@ internal fun PlaybackPlayerSettings(
     settings: PlayerSettingsUiState,
 ) {
     var showExternalPlayerDialog by remember { mutableStateOf(false) }
-    var showExternalPlayerAppDialog by remember { mutableStateOf(false) }
     var showPlaybackEngineDialog by remember { mutableStateOf(false) }
-    val availableExternalPlayers = ExternalPlayerPlatform.availablePlayers()
-    val selectedExternalPlayer = availableExternalPlayers.firstOrNull { it.id == settings.externalPlayerId }
     Column(verticalArrangement = Arrangement.spacedBy(if (isTablet) 18.dp else 12.dp)) {
         SettingsSection(
             title = stringResource(Res.string.settings_playback_section_player),
@@ -52,21 +48,7 @@ internal fun PlaybackPlayerSettings(
                     isTablet = isTablet,
                     onClick = { showExternalPlayerDialog = true },
                 )
-                if (isIos && settings.externalPlayerEnabled) {
-                    SettingsGroupDivider(isTablet = isTablet)
-                    SettingsNavigationRow(
-                        title = stringResource(Res.string.settings_playback_external_player_app),
-                        description = selectedExternalPlayer?.name
-                            ?: if (availableExternalPlayers.isEmpty()) {
-                                stringResource(Res.string.settings_playback_external_player_none_available)
-                            } else {
-                                stringResource(Res.string.settings_playback_not_set)
-                            },
-                        isTablet = isTablet,
-                        onClick = { showExternalPlayerAppDialog = true },
-                    )
-                }
-                if (!isIos && settings.externalPlayerEnabled) {
+                if (settings.externalPlayerEnabled) {
                     SettingsGroupDivider(isTablet = isTablet)
                     SettingsSwitchRow(
                         title = stringResource(Res.string.settings_playback_external_player_forward_subtitles),
@@ -87,29 +69,27 @@ internal fun PlaybackPlayerSettings(
             }
         }
 
-        if (!isIos) {
-            SettingsSection(
-                title = stringResource(Res.string.settings_playback_section_decoder),
-                isTablet = isTablet,
-            ) {
-                SettingsGroup(isTablet = isTablet) {
-                    SettingsNavigationRow(
-                        title = stringResource(Res.string.settings_playback_engine),
-                        description = settings.androidPlaybackEngine.label,
-                        enabled = !settings.externalPlayerEnabled,
-                        isTablet = isTablet,
-                        onClick = { showPlaybackEngineDialog = true },
-                    )
-                    SettingsGroupDivider(isTablet = isTablet)
-                    SettingsSwitchRow(
-                        title = stringResource(Res.string.settings_playback_auto_switch_engine_on_error),
-                        description = stringResource(Res.string.settings_playback_auto_switch_engine_on_error_description),
-                        checked = settings.autoSwitchPlaybackEngineOnError,
-                        enabled = !settings.externalPlayerEnabled,
-                        isTablet = isTablet,
-                        onCheckedChange = PlayerSettingsRepository::setAutoSwitchPlaybackEngineOnError,
-                    )
-                }
+        SettingsSection(
+            title = stringResource(Res.string.settings_playback_section_decoder),
+            isTablet = isTablet,
+        ) {
+            SettingsGroup(isTablet = isTablet) {
+                SettingsNavigationRow(
+                    title = stringResource(Res.string.settings_playback_engine),
+                    description = settings.androidPlaybackEngine.label,
+                    enabled = !settings.externalPlayerEnabled,
+                    isTablet = isTablet,
+                    onClick = { showPlaybackEngineDialog = true },
+                )
+                SettingsGroupDivider(isTablet = isTablet)
+                SettingsSwitchRow(
+                    title = stringResource(Res.string.settings_playback_auto_switch_engine_on_error),
+                    description = stringResource(Res.string.settings_playback_auto_switch_engine_on_error_description),
+                    checked = settings.autoSwitchPlaybackEngineOnError,
+                    enabled = !settings.externalPlayerEnabled,
+                    isTablet = isTablet,
+                    onCheckedChange = PlayerSettingsRepository::setAutoSwitchPlaybackEngineOnError,
+                )
             }
         }
     }
@@ -122,18 +102,6 @@ internal fun PlaybackPlayerSettings(
                 showExternalPlayerDialog = false
             },
             onDismiss = { showExternalPlayerDialog = false },
-        )
-    }
-
-    if (showExternalPlayerAppDialog) {
-        ExternalPlayerSelectionDialog(
-            players = availableExternalPlayers,
-            selectedPlayerId = settings.externalPlayerId,
-            onPlayerSelected = { playerId ->
-                PlayerSettingsRepository.setExternalPlayerId(playerId)
-                showExternalPlayerAppDialog = false
-            },
-            onDismiss = { showExternalPlayerAppDialog = false },
         )
     }
 
@@ -181,49 +149,6 @@ private fun PlayerPreferenceDialog(
                 selected = isExternal,
                 onClick = { onPreferenceSelected(true) },
             )
-        }
-
-        DialogButtons {
-            DialogButton(
-                text = stringResource(Res.string.action_done),
-                onClick = onDismiss,
-            )
-        }
-    }
-}
-
-@Composable
-@OptIn(ExperimentalMaterial3Api::class)
-private fun ExternalPlayerSelectionDialog(
-    players: List<ExternalPlayerApp>,
-    selectedPlayerId: String?,
-    onPlayerSelected: (String) -> Unit,
-    onDismiss: () -> Unit,
-) {
-    DialogSurface(
-        onDismissRequest = onDismiss,
-        title = stringResource(Res.string.settings_playback_external_player_app),
-    ) {
-        if (players.isEmpty()) {
-            Text(
-                text = stringResource(Res.string.settings_playback_external_player_none_available),
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-        } else {
-            Column(
-                modifier = Modifier.fillMaxWidth(),
-                verticalArrangement = Arrangement.spacedBy(8.dp),
-            ) {
-                players.forEach { player ->
-                    val isSelected = player.id == selectedPlayerId
-                    DialogOption(
-                        text = player.name,
-                        selected = isSelected,
-                        onClick = { onPlayerSelected(player.id) },
-                    )
-                }
-            }
         }
 
         DialogButtons {

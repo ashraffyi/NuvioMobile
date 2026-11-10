@@ -18,7 +18,6 @@ fun CustomThemeColors.toColorPalette(): ThemeColorPalette {
         onSecondary = foreground(accent),
         onSecondaryVariant = foreground(gradient[2]),
         accentGradient = if (isSolid) listOf(accent) else gradient,
-        nativeAccentHex = formatHexColor(focusRing.toArgb() and 0xFFFFFF),
         focusRing = focusRing,
         focusBackground = surface(0xFF242424, 0.18f),
         background = surface(0xFF0C0D0F, 0.025f),

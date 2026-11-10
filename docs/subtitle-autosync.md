@@ -12,8 +12,8 @@ keeps the original timing when the whole-film correction is within the chosen
 100–500 ms limit; Off applies all confident corrections.
 
 This port supports Android's internal ExoPlayer with HTTP(S) streams and subtitles
-that its sidecar renderer supports. ASS/SSA selected with libass, libmpv, external
-players, and iOS continue using their existing subtitle behavior. There is no audio
+that its sidecar renderer supports. ASS/SSA selected with libass, libmpv and external
+players continue using their existing subtitle behavior. There is no audio
 fallback when a video lacks usable embedded subtitle timing.
 
 At startup, AutoSync can try other add-on subtitles in the same language. When the
@@ -49,8 +49,8 @@ the PR at the author’s request.
 
 Physical-device checks still required:
 
-1. With AutoSync off, verify ordinary subtitle selection and manual delay on Android
-   and iOS; verify libmpv and external-player behavior.
+1. With AutoSync off, verify ordinary subtitle selection and manual delay;
+   verify libmpv and external-player behavior.
 2. Enable AutoSync and select an offset or drifting subtitle against an MKV or MP4
    with embedded subtitles. Verify the badge appears without a success toast, and
    playback continues without rebuffering.

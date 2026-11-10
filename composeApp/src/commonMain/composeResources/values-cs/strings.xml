@@ -487,9 +487,6 @@
     <string name="settings_licenses_attributions_mdblist_body">Nuvio používá MDBList pro hodnocení a data externích poskytovatelů skóre. Nuvio není přidruženo k MDBList.</string>
     <string name="settings_licenses_attributions_introdb_title">IntroDB</string>
     <string name="settings_licenses_attributions_introdb_body">Nuvio používá IntroDB API pro komunitní časové značky intra, rekapitulací, závěrečných titulků a ukázek, které se používají při přeskakování. Nuvio není přidruženo k IntroDB.</string>
-    <string name="settings_licenses_attributions_mpvkit_title">MPVKit</string>
-    <string name="settings_licenses_attributions_mpvkit_body">Používá se pro přehrávání na iOS buildech.</string>
-    <string name="settings_licenses_attributions_mpvkit_license">Samotný zdrojový kód MPVKit je licencován pod LGPL v3.0. Balíčky MPVKit, včetně knihoven libmpv a FFmpeg, jsou rovněž licencovány pod LGPL v3.0.</string>
     <string name="settings_licenses_attributions_exoplayer_title">AndroidX Media3 ExoPlayer 1.8.0</string>
     <string name="settings_licenses_attributions_exoplayer_body">Používá se pro přehrávání na Android buildech.</string>
     <string name="settings_licenses_attributions_exoplayer_license">Licencováno pod Apache License, verze 2.0.</string>
@@ -552,8 +549,6 @@
     <string name="settings_appearance_app_language_device">Jazyk zařízení</string>
     <string name="settings_appearance_app_language_sheet_title">Vybrat jazyk</string>
     <string name="settings_appearance_continue_watching_description">Nastavení pro sekci Pokračovat ve sledování.</string>
-    <string name="settings_appearance_liquid_glass">Liquid Glass</string>
-    <string name="settings_appearance_liquid_glass_description">Použít nativní lištu panelů pro iPhone na iOS 26 a novějších.</string>
     <string name="settings_appearance_poster_customization_description">Vyladit šířku karty a poloměr rohů.</string>
     <string name="settings_appearance_section_display">ZOBRAZENÍ</string>
     <string name="settings_appearance_section_home">DOMŮ</string>
@@ -851,14 +846,12 @@
     <string name="settings_playback_enable_libass">Použít libass pro ASS/SSA titulky</string>
     <string name="settings_playback_enable_libass_description">Experimentální: pokročilé vykreslování ASS/SSA (styly, pozicování, animace)</string>
     <string name="settings_playback_external_player">Externí přehrávač</string>
-    <string name="settings_playback_external_player_app">Aplikace externího přehrávače</string>
     <string name="settings_playback_external_player_description_android">Otevřít nové přehrávání pomocí výchozí video aplikace na Androidu nebo systémového výběru.</string>
     <string name="settings_playback_external_player_description_ios">Otevřít nové přehrávání pomocí vybraného nainstalovaného přehrávače.</string>
     <string name="settings_playback_external_player_forward_subtitles">Přeposlat titulky do externího přehrávače</string>
     <string name="settings_playback_external_player_forward_subtitles_description">Stáhnout titulky z doplňků ve vašem preferovaném jazyce a předat je externímu přehrávači.</string>
     <string name="settings_playback_external_player_send_skip_segments">Odeslat časové značky pro intro a outro</string>
     <string name="settings_playback_external_player_send_skip_segments_description">Předat zpracované časové značky pro přeskočení intra a outra externímu přehrávači pro automatické přeskočení. Funguje pouze v přehrávačích, které to podporují; ostatní přehrávače to budou ignorovat.</string>
-    <string name="settings_playback_external_player_none_available">Nejsou nainstalovány žádné podporované externí přehrávače</string>
     <string name="settings_playback_player_preference">Přehrávač</string>
     <string name="settings_playback_player_preference_internal">Interní</string>
     <string name="settings_playback_player_preference_external">Externí</string>
@@ -1593,49 +1586,8 @@
     <string name="unit_bytes_gb">GB</string>
     <!-- PlayerControls a11y -->
     <string name="player_action_submit_intro">Odeslat intro</string>
-    <string name="player_action_video_settings">Nastavení videa</string>
     <!-- CloudLibrary -->
     <string name="cloud_library_provider_unavailable">Cloudová knihovna není pro %1$s k dispozici.</string>
-    <!-- Player iOS video settings modal -->
-    <string name="player_video_settings_title">Video</string>
-    <string name="player_video_settings_reset_tuning">Resetovat ladění</string>
-    <string name="player_video_settings_output_preset">Předvolba výstupu</string>
-    <string name="player_video_settings_hdr_peak_detection">Detekce maximálního jasu HDR</string>
-    <string name="player_video_settings_hdr_peak_detection_desc">Odhadnout maximální jas HDR, když jsou metadata chybná nebo chybí.</string>
-    <string name="player_video_settings_tone_mapping">Mapování tónů</string>
-    <string name="player_video_settings_deband">Odstranění pásů (Deband)</string>
-    <string name="player_video_settings_deband_desc">Snižuje pruhování barev za cenu malého poklesu výkonu.</string>
-    <string name="player_video_settings_interpolation">Interpolace snímků</string>
-    <string name="player_video_settings_interpolation_desc">Plynulý pohyb, když může mpv čistě použít synchronizaci displeje.</string>
-    <string name="player_video_settings_brightness">Jas</string>
-    <string name="player_video_settings_contrast">Kontrast</string>
-    <string name="player_video_settings_saturation">Sytost</string>
-    <string name="player_video_settings_gamma">Gama</string>
-    <!-- iOS video output presets -->
-    <string name="player_ios_preset_native_edr_label">Nativní EDR</string>
-    <string name="player_ios_preset_native_edr_desc">Nejlepší pro iPhony a iPady s podporou HDR.</string>
-    <string name="player_ios_preset_sdr_tone_mapped_label">SDR mapované tóny</string>
-    <string name="player_ios_preset_sdr_tone_mapped_desc">Předvídatelnější bílé a černé barvy u SDR výstupu.</string>
-    <string name="player_ios_preset_compatibility_label">Kompatibilita</string>
-    <string name="player_ios_preset_compatibility_desc">Nejbližší staršímu chování iOS MPV.</string>
-    <string name="player_ios_preset_custom_label">Vlastní</string>
-    <string name="player_ios_preset_custom_desc">Použije vaše pokročilé hodnoty níže.</string>
-    <string name="player_ios_hardware_decoder_off">Vyp</string>
-    <!-- Playback settings iOS video output -->
-    <string name="settings_playback_ios_video_output">VÝSTUP VIDEA PRO iOS</string>
-    <string name="settings_playback_ios_hardware_decoder">Hardwarový dekodér</string>
-    <string name="settings_playback_ios_extended_dynamic_range">Rozšířený dynamický rozsah</string>
-    <string name="settings_playback_ios_extended_dynamic_range_desc">Výchozí režim výstupu Metal pro nové relace přehrávání.</string>
-    <string name="settings_playback_ios_display_color_hint">Pokyn pro barvy displeje</string>
-    <string name="settings_playback_ios_display_color_hint_desc">Nechte mpv ve výchozím stavu cílit na barevný prostor aktivního displeje.</string>
-    <string name="settings_playback_ios_target_primaries">Cílové základní barvy</string>
-    <string name="settings_playback_ios_target_transfer">Cílový přenos</string>
-    <!-- Playback settings iOS audio output -->
-    <string name="settings_playback_ios_audio_output_section">VÝSTUP ZVUKU PRO iOS</string>
-    <string name="settings_playback_ios_audio_output">Výstup zvuku</string>
-    <string name="settings_playback_ios_audio_output_auto_desc">Použít AudioUnit, dokud je výstup AVFoundation dočasně zakázán.</string>
-    <string name="settings_playback_ios_audio_output_avfoundation_desc">Experimentální podpora pro prostorový zvuk (Spatial Audio) a vícekanálový výstup.</string>
-    <string name="settings_playback_ios_audio_output_audiounit_desc">Použít starší výstup AudioUnit.</string>
     <!-- Debrid Result Management section -->
     <string name="settings_debrid_section_result_management">SPRÁVA VÝSLEDKŮ</string>
     <string name="settings_debrid_max_results">Max výsledků</string>
@@ -1734,11 +1686,6 @@
     <string name="submit_intro_end_time">ČAS KONCE (MM:SS)</string>
     <string name="submit_intro_submit">Odeslat</string>
     <string name="submit_intro_capture">Zachytit</string>
-    <!-- iOS advanced playback -->
-    <string name="settings_playback_ios_hw_decoder_dialog">Hardwarový dekodér</string>
-    <string name="settings_playback_ios_audio_output_dialog">Výstup zvuku</string>
-    <string name="settings_playback_ios_target_primaries_dialog">Cílové základní barvy</string>
-    <string name="settings_playback_ios_target_transfer_dialog">Cílový přenos</string>
     <!-- Collection editor -->
     <string name="collections_editor_resolved_trakt_list">Rozpoznaný seznam Trakt</string>
     <string name="collections_editor_tmdb_discover">Objevovat na TMDB (Discover)</string>
@@ -1796,17 +1743,12 @@
     <string name="details_runtime_hours_minutes">%1$dh %2$dm</string>
     <string name="details_runtime_hours_only">%1$dh</string>
     <string name="details_runtime_minutes_only">%1$dm</string>
-    <string name="downloads_error_finalize_file_failed">Stahovaný soubor se nepodařilo dokončit</string>
-    <string name="downloads_error_open_partial_file_failed">Nepodařilo se otevřít částečný soubor stahování</string>
-    <string name="downloads_error_partial_file_not_open">Částečný soubor stahování není otevřený</string>
-    <string name="downloads_error_write_partial_file_failed">Nepodařilo se zapsat do částečného souboru stahování</string>
     <string name="library_local_tab_title">Knihovna Nuvio</string>
     <string name="network_connection_issue">Problém s připojením</string>
     <string name="network_empty_response_body">Prázdné tělo odpovědi</string>
     <string name="network_please_check_connection">Zkontrolujte prosím své připojení a zkuste to znovu.</string>
     <string name="network_request_failed_http">Požadavek selhal s chybou HTTP %1$d</string>
     <string name="player_addon_subtitle_display_format">%1$s (%2$s)</string>
-    <string name="player_error_mpv_unavailable">Modul přehrávače MPV není k dispozici. Prosím sestavte aplikaci znovu.</string>
     <string name="player_error_unable_to_play_stream">Tento stream se nepodařilo přehrát.</string>
     <string name="plugins_badge_disabled">Pluginy vypnuty</string>
     <string name="plugins_badge_enabled">Pluginy zapnuty</string>

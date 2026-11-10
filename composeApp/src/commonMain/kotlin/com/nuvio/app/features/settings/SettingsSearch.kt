@@ -36,7 +36,6 @@ import com.nuvio.app.core.ui.NuvioTokens
 import com.nuvio.app.core.ui.nuvio
 import com.nuvio.app.features.p2p.P2pSettingsRepository
 import com.nuvio.app.features.player.PlayerSettingsRepository
-import com.nuvio.app.isIos
 import com.nuvio.app.supportsPosterNavigationMotion
 import nuvio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
@@ -83,7 +82,6 @@ internal fun settingsSearchEntries(
     supportersContributorsPageEnabled: Boolean,
     accountDeletionEnabled: Boolean,
     personalMediaAddonCopyEnabled: Boolean,
-    liquidGlassNativeTabBarSupported: Boolean,
     switchProfileAvailable: Boolean,
     checkForUpdatesAvailable: Boolean,
 ): List<SettingsSearchEntry> {
@@ -120,7 +118,7 @@ internal fun settingsSearchEntries(
         PlayerSettingsRepository.ensureLoaded()
         PlayerSettingsRepository.uiState
     }.collectAsStateWithLifecycle()
-    val playbackSections = visiblePlaybackSections(isIos, playerSettings.androidPlaybackEngine, P2pSettingsRepository.isVisible)
+    val playbackSections = visiblePlaybackSections(playerSettings.androidPlaybackEngine, P2pSettingsRepository.isVisible)
     val entries = mutableListOf<SettingsSearchEntry>()
 
     fun add(
@@ -307,17 +305,9 @@ internal fun settingsSearchEntries(
         PlaybackSearchRow("introdb-attribution", stringResource(Res.string.settings_licenses_attributions_introdb_title), stringResource(Res.string.settings_licenses_attributions_introdb_body)),
         PlaybackSearchRow("imdb-datasets", stringResource(Res.string.settings_licenses_attributions_imdb_title), stringResource(Res.string.settings_licenses_attributions_imdb_body)),
         PlaybackSearchRow(
-            if (isIos) "mpvkit-license" else "exoplayer-license",
-            if (isIos) {
-                stringResource(Res.string.settings_licenses_attributions_mpvkit_title)
-            } else {
-                stringResource(Res.string.settings_licenses_attributions_exoplayer_title)
-            },
-            if (isIos) {
-                stringResource(Res.string.settings_licenses_attributions_mpvkit_license)
-            } else {
-                stringResource(Res.string.settings_licenses_attributions_exoplayer_license)
-            },
+            "exoplayer-license",
+            stringResource(Res.string.settings_licenses_attributions_exoplayer_title),
+            stringResource(Res.string.settings_licenses_attributions_exoplayer_license),
         ),
     ).forEach { row ->
         addRow(
@@ -385,16 +375,6 @@ internal fun settingsSearchEntries(
         pageLabel = appearancePage,
         section = stringResource(Res.string.settings_appearance_section_display),
     )
-    if (liquidGlassNativeTabBarSupported) {
-        addRow(
-            page = SettingsPage.Layout,
-            key = "liquid-glass",
-            title = stringResource(Res.string.settings_appearance_liquid_glass),
-            description = stringResource(Res.string.settings_appearance_liquid_glass_description),
-            pageLabel = layoutPage,
-            section = stringResource(Res.string.settings_appearance_nav_bar_style),
-        )
-    }
     addRow(
         page = SettingsPage.Appearance,
         key = "app-icon",
@@ -402,15 +382,13 @@ internal fun settingsSearchEntries(
         pageLabel = appearancePage,
         section = stringResource(Res.string.settings_appearance_section_display),
     )
-    if (!isIos) {
-        addRow(
-            page = SettingsPage.Layout,
-            key = "navigation-bar",
-            title = stringResource(Res.string.settings_appearance_nav_bar_style),
-            pageLabel = layoutPage,
-            section = stringResource(Res.string.settings_appearance_nav_bar_style),
-        )
-    }
+    addRow(
+        page = SettingsPage.Layout,
+        key = "navigation-bar",
+        title = stringResource(Res.string.settings_appearance_nav_bar_style),
+        pageLabel = layoutPage,
+        section = stringResource(Res.string.settings_appearance_nav_bar_style),
+    )
     addRow(
         page = SettingsPage.Appearance,
         key = "app-language",
@@ -585,11 +563,6 @@ internal fun settingsSearchEntries(
                 stringResource(Res.string.settings_playback_external_player_description_android),
                 page = SettingsPage.PlaybackPlayer,
             ),
-            if (isIos) PlaybackSearchRow(
-                "external-player-app",
-                stringResource(Res.string.settings_playback_external_player_app),
-                page = SettingsPage.PlaybackPlayer,
-            ) else null,
             PlaybackSearchRow(
                 "hold-to-speed",
                 stringResource(Res.string.settings_playback_hold_to_speed),
@@ -647,37 +620,35 @@ internal fun settingsSearchEntries(
             if (pluginsEnabled) add(PlaybackSearchRow("allowed-plugins", stringResource(Res.string.settings_playback_allowed_plugins)))
         },
     )
-    if (!isIos) {
-        addPlaybackRows(
-            addRow = ::addRow,
-            pageLabel = playbackPage,
-            section = playbackDecoder,
-            page = SettingsPage.PlaybackVideo,
-            rows = listOf(
-                PlaybackSearchRow("auto-switch-engine", stringResource(Res.string.settings_playback_auto_switch_engine_on_error), stringResource(Res.string.settings_playback_auto_switch_engine_on_error_description), page = SettingsPage.PlaybackPlayer),
-                PlaybackSearchRow("decoder-priority", stringResource(Res.string.settings_playback_decoder_priority)),
-                PlaybackSearchRow("dv7-hevc", stringResource(Res.string.settings_playback_map_dv7_to_hevc), stringResource(Res.string.settings_playback_map_dv7_to_hevc_description)),
-                PlaybackSearchRow("tunneled-playback", stringResource(Res.string.settings_playback_tunneled_playback), stringResource(Res.string.settings_playback_tunneled_playback_description)),
-                PlaybackSearchRow("exo-native-memory", stringResource(Res.string.settings_playback_exo_native_memory), stringResource(Res.string.settings_playback_exo_native_memory_description), page = SettingsPage.PlaybackBuffer),
-                PlaybackSearchRow("custom-buffers", stringResource(Res.string.settings_playback_buffer_custom), stringResource(Res.string.settings_playback_buffer_custom_description), page = SettingsPage.PlaybackBuffer),
-                PlaybackSearchRow("vod-cache", stringResource(Res.string.settings_playback_vod_cache), stringResource(Res.string.settings_playback_vod_cache_description), page = SettingsPage.PlaybackBuffer),
-                PlaybackSearchRow("exo-chapters", stringResource(Res.string.settings_playback_exo_chapters), stringResource(Res.string.settings_playback_exo_chapters_description), page = SettingsPage.PlaybackInterface),
-                PlaybackSearchRow("remember-audio-delay", stringResource(Res.string.settings_playback_remember_audio_delay), stringResource(Res.string.settings_playback_remember_audio_delay_description), page = SettingsPage.PlaybackAudio),
-                PlaybackSearchRow("downmix", stringResource(Res.string.settings_playback_downmix), stringResource(Res.string.settings_playback_downmix_description), page = SettingsPage.PlaybackAudio),
-            ),
-        )
-        addPlaybackRows(
-            addRow = ::addRow,
-            pageLabel = playbackPage,
-            section = playbackSubtitleRendering,
-            page = SettingsPage.PlaybackSubtitles,
-            rows = listOf(
-                PlaybackSearchRow("libass", stringResource(Res.string.settings_playback_enable_libass), stringResource(Res.string.settings_playback_enable_libass_description)),
-                PlaybackSearchRow("libass-render-mode", stringResource(Res.string.settings_playback_render_mode), stringResource(Res.string.settings_playback_render_mode_description)),
-                PlaybackSearchRow("libass-render", stringResource(Res.string.settings_playback_render_scale)),
-            ),
-        )
-    }
+    addPlaybackRows(
+        addRow = ::addRow,
+        pageLabel = playbackPage,
+        section = playbackDecoder,
+        page = SettingsPage.PlaybackVideo,
+        rows = listOf(
+            PlaybackSearchRow("auto-switch-engine", stringResource(Res.string.settings_playback_auto_switch_engine_on_error), stringResource(Res.string.settings_playback_auto_switch_engine_on_error_description), page = SettingsPage.PlaybackPlayer),
+            PlaybackSearchRow("decoder-priority", stringResource(Res.string.settings_playback_decoder_priority)),
+            PlaybackSearchRow("dv7-hevc", stringResource(Res.string.settings_playback_map_dv7_to_hevc), stringResource(Res.string.settings_playback_map_dv7_to_hevc_description)),
+            PlaybackSearchRow("tunneled-playback", stringResource(Res.string.settings_playback_tunneled_playback), stringResource(Res.string.settings_playback_tunneled_playback_description)),
+            PlaybackSearchRow("exo-native-memory", stringResource(Res.string.settings_playback_exo_native_memory), stringResource(Res.string.settings_playback_exo_native_memory_description), page = SettingsPage.PlaybackBuffer),
+            PlaybackSearchRow("custom-buffers", stringResource(Res.string.settings_playback_buffer_custom), stringResource(Res.string.settings_playback_buffer_custom_description), page = SettingsPage.PlaybackBuffer),
+            PlaybackSearchRow("vod-cache", stringResource(Res.string.settings_playback_vod_cache), stringResource(Res.string.settings_playback_vod_cache_description), page = SettingsPage.PlaybackBuffer),
+            PlaybackSearchRow("exo-chapters", stringResource(Res.string.settings_playback_exo_chapters), stringResource(Res.string.settings_playback_exo_chapters_description), page = SettingsPage.PlaybackInterface),
+            PlaybackSearchRow("remember-audio-delay", stringResource(Res.string.settings_playback_remember_audio_delay), stringResource(Res.string.settings_playback_remember_audio_delay_description), page = SettingsPage.PlaybackAudio),
+            PlaybackSearchRow("downmix", stringResource(Res.string.settings_playback_downmix), stringResource(Res.string.settings_playback_downmix_description), page = SettingsPage.PlaybackAudio),
+        ),
+    )
+    addPlaybackRows(
+        addRow = ::addRow,
+        pageLabel = playbackPage,
+        section = playbackSubtitleRendering,
+        page = SettingsPage.PlaybackSubtitles,
+        rows = listOf(
+            PlaybackSearchRow("libass", stringResource(Res.string.settings_playback_enable_libass), stringResource(Res.string.settings_playback_enable_libass_description)),
+            PlaybackSearchRow("libass-render-mode", stringResource(Res.string.settings_playback_render_mode), stringResource(Res.string.settings_playback_render_mode_description)),
+            PlaybackSearchRow("libass-render", stringResource(Res.string.settings_playback_render_scale)),
+        ),
+    )
     addPlaybackRows(
         addRow = ::addRow,
         pageLabel = playbackPage,

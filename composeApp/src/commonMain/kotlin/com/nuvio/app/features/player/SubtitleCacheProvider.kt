@@ -1,13 +1,9 @@
 package com.nuvio.app.features.player
 
 /**
- * Platform-specific subtitle caching for external players.
- *
- * On Android, downloads subtitle files from remote URLs to local cache and returns
- * content:// URIs so external players can access them (via intent extras + ClipData).
- *
- * On iOS, returns subtitles unchanged — players like Infuse accept remote URLs
- * directly via their URL scheme parameters.
+ * Subtitle caching for external players: downloads subtitle files from remote URLs to
+ * local cache and returns content:// URIs so external players can access them
+ * (via intent extras + ClipData).
  */
 expect object SubtitleCacheProvider {
     /**

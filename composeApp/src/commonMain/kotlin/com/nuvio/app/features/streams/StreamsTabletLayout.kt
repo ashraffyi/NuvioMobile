@@ -45,11 +45,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.platform.LocalLayoutDirection
 import coil3.compose.AsyncImage
-import com.nuvio.app.core.ui.platformPhysicalTopInset
 import com.nuvio.app.core.ui.shimmer
 import com.nuvio.app.core.ui.LocalOnBackdrop
 import com.nuvio.app.core.ui.LocalVerticalBarPadding
-import com.nuvio.app.isIos
 import dev.chrisbanes.haze.HazeInputScale
 import dev.chrisbanes.haze.hazeEffect
 import dev.chrisbanes.haze.hazeSource
@@ -178,7 +176,7 @@ internal fun TabletStreamsLayout(
                     .fillMaxHeight()
                     .padding(end = verticalBar.calculateEndPadding(layoutDirection))
                     .padding(
-                        top = if (isIos) platformPhysicalTopInset() + 60.dp else 60.dp,
+                        top = 60.dp,
                         end = 12.dp,
                         bottom = 12.dp,
                     ),

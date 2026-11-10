@@ -6,7 +6,6 @@ import com.nuvio.app.features.catalog.CatalogRepository
 import com.nuvio.app.features.collection.CollectionEditorPage
 import com.nuvio.app.features.collection.CollectionEditorRepository
 import com.nuvio.app.features.collection.FolderDetailRepository
-import com.nuvio.app.features.collection.disposeCollectionEditorPage
 import com.nuvio.app.features.home.MetaPreview
 import com.nuvio.app.features.library.LibraryItem
 import com.nuvio.app.features.player.ExternalPlayerPlaybackRequest
@@ -29,13 +28,11 @@ internal val navigationSavedStateConfiguration = SavedStateConfiguration {
             subclass(DetailRoute::class, DetailRoute.serializer())
             subclass(PersonDetailRoute::class, PersonDetailRoute.serializer())
             subclass(EntityBrowseRoute::class, EntityBrowseRoute.serializer())
-            subclass(SettingsPageRoute::class, SettingsPageRoute.serializer())
             subclass(HomescreenSettingsRoute::class, HomescreenSettingsRoute.serializer())
             subclass(MetaScreenSettingsRoute::class, MetaScreenSettingsRoute.serializer())
             subclass(ContinueWatchingSettingsRoute::class, ContinueWatchingSettingsRoute.serializer())
             subclass(DownloadsRoute::class, DownloadsRoute.serializer())
             subclass(PartyRoute::class, PartyRoute.serializer())
-            subclass(DownloadShowRoute::class, DownloadShowRoute.serializer())
             subclass(AddonsSettingsRoute::class, AddonsSettingsRoute.serializer())
             subclass(PluginsSettingsRoute::class, PluginsSettingsRoute.serializer())
             subclass(AccountSettingsRoute::class, AccountSettingsRoute.serializer())
@@ -43,7 +40,6 @@ internal val navigationSavedStateConfiguration = SavedStateConfiguration {
             subclass(LicensesAttributionsSettingsRoute::class, LicensesAttributionsSettingsRoute.serializer())
             subclass(CollectionsRoute::class, CollectionsRoute.serializer())
             subclass(CollectionEditorRoute::class, CollectionEditorRoute.serializer())
-            subclass(CollectionEditorPageRoute::class, CollectionEditorPageRoute.serializer())
             subclass(FolderDetailRoute::class, FolderDetailRoute.serializer())
             subclass(StreamRoute::class, StreamRoute.serializer())
             subclass(CatalogRoute::class, CatalogRoute.serializer())
@@ -70,11 +66,6 @@ internal fun disposeRouteResources(route: AppRoute) {
         }
 
         is CollectionEditorRoute -> CollectionEditorRepository.clear()
-        is CollectionEditorPageRoute -> {
-            runCatching { CollectionEditorPage.valueOf(route.pageName) }
-                .getOrNull()
-                ?.let(::disposeCollectionEditorPage)
-        }
         is FolderDetailRoute -> FolderDetailRepository.clear()
         else -> Unit
     }

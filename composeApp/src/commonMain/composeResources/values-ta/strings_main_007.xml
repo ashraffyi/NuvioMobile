@@ -2,9 +2,6 @@
 <resources>
     <string name="settings_licenses_attributions_introdb_title">IntroDB</string>
     <string name="settings_licenses_attributions_introdb_body">Skip கட்டுப்பாடுகளில் பயன்படுத்தப்படும் intro, recap, credits மற்றும் preview நேரக் குறியீடுகளுக்கு Nuvio சமூகத்தினர் வழங்கும் IntroDB API-ஐப் பயன்படுத்துகிறது. Nuvio, IntroDB உடன் இணைக்கப்பட்டதோ அதன் ஆதரவைப் பெற்றதோ அல்ல.</string>
-    <string name="settings_licenses_attributions_mpvkit_title">MPVKit</string>
-    <string name="settings_licenses_attributions_mpvkit_body">iOS பதிப்புகளில் பிளேபேக்கிற்குப் பயன்படுத்தப்படுகிறது.</string>
-    <string name="settings_licenses_attributions_mpvkit_license">MPVKit மூலக் குறியீடு மட்டும் LGPL v3.0 உரிமத்தின் கீழ் உள்ளது. libmpv மற்றும் FFmpeg நூலகங்கள் உட்பட MPVKit தொகுப்புகளும் LGPL v3.0 உரிமத்தின் கீழ் உள்ளன.</string>
     <string name="settings_licenses_attributions_exoplayer_title">AndroidX Media3 ExoPlayer 1.8.0</string>
     <string name="settings_licenses_attributions_exoplayer_body">Android பதிப்புகளில் பிளேபேக்கிற்குப் பயன்படுத்தப்படுகிறது.</string>
     <string name="settings_licenses_attributions_exoplayer_license">Apache License, Version 2.0-இன் கீழ் உரிமம் பெற்றது.</string>
@@ -83,8 +80,6 @@
     <string name="settings_appearance_app_language">பயன்பாட்டு மொழி</string>
     <string name="settings_appearance_app_language_device">சாதன மொழி</string>
     <string name="settings_appearance_app_language_sheet_title">மொழியைத் தேர்ந்தெடுக்கவும்</string>
-    <string name="settings_appearance_app_language_restart_title">மறுதொடக்கம் தேவை</string>
-    <string name="settings_appearance_app_language_restart_message">இந்த மொழிக்கான அமைப்பைப் புதுப்பிக்க பயன்பாட்டை மூடி மீண்டும் திறக்கவும்.</string>
     <string name="settings_appearance_nav_bar_style">வழிசெலுத்தல் பட்டி</string>
     <string name="settings_appearance_nav_bar_style_sheet_title">வழிசெலுத்தல் பட்டி பாணி</string>
     <string name="settings_nav_bar_glow">கண்ணாடி ஒளிர்வு</string>
@@ -99,5 +94,4 @@
     <string name="settings_nav_bar_style_compact">எப்போதும் சுருக்கமாக</string>
     <string name="settings_nav_bar_style_classic">பாரம்பரியம்</string>
     <string name="settings_appearance_continue_watching_description">தொடர்ந்து பார்ப்பது பகுதியின் அமைப்புகள்.</string>
-    <string name="settings_appearance_liquid_glass">திரவக் கண்ணாடி</string>
 </resources>

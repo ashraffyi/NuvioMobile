@@ -21,12 +21,11 @@ internal enum class PlaybackSection(
 }
 
 internal fun visiblePlaybackSections(
-    ios: Boolean,
     engine: AndroidPlaybackEngine,
     p2pVisible: Boolean,
 ): List<PlaybackSection> = PlaybackSection.entries.filter { section ->
     when (section) {
-        PlaybackSection.Buffer -> !ios && engine != AndroidPlaybackEngine.Libmpv
+        PlaybackSection.Buffer -> engine != AndroidPlaybackEngine.Libmpv
         PlaybackSection.P2p -> p2pVisible
         else -> true
     }

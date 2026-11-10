@@ -51,11 +51,6 @@ internal fun MainTabsDestination(
     selectedTab: AppScreenTab,
     initialHomeReady: Boolean,
     rootRouteActive: Boolean,
-    useTabletFloatingTabBar: Boolean,
-    useNativeNavigation: Boolean,
-    useNativeTabBar: Boolean,
-    liquidGlassNativeTabBarSupported: Boolean,
-    liquidGlassNativeTabBarEnabled: Boolean,
     requests: AppTabRequests,
     state: AppTabState,
     actions: (isTabletLayout: Boolean) -> AppTabActions,
@@ -67,13 +62,8 @@ internal fun MainTabsDestination(
     PlatformBackHandler(enabled = rootRouteActive, onBack = onBack)
 
     BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
-        val isTabletLayout = useTabletFloatingTabBar || maxWidth >= 768.dp
+        val isTabletLayout = maxWidth >= 768.dp
         val tabActions = remember(actions, isTabletLayout) { actions(isTabletLayout) }
-        val useNativeBottomTabs = if (useNativeNavigation) {
-            useNativeTabBar
-        } else {
-            liquidGlassNativeTabBarSupported && liquidGlassNativeTabBarEnabled && initialHomeReady
-        }
         val tabsRouteActive = rootRouteActive
         val navBarScrollState = rememberNuvioNavBarScrollState()
         val navBarHazeState = rememberHazeState()
@@ -122,7 +112,7 @@ internal fun MainTabsDestination(
             containerColor = Color.Transparent,
             contentWindowInsets = WindowInsets(0),
             bottomBar = {
-                if (!isTabletLayout && !useNativeBottomTabs && navBarStyleSetting == NavBarStyle.CLASSIC) {
+                if (!isTabletLayout && navBarStyleSetting == NavBarStyle.CLASSIC) {
                     NuvioClassicNavigationBar {
                         NavItem(
                             selected = selectedTab == AppScreenTab.Home,
@@ -159,7 +149,7 @@ internal fun MainTabsDestination(
         ) { innerPadding ->
             Box(modifier = Modifier.fillMaxSize()) {
                 CompositionLocalProvider(
-                    LocalNuvioBottomNavigationOverlayPadding provides if (useNativeBottomTabs) 49.dp else if (!isTabletLayout && navBarStyleSetting != NavBarStyle.CLASSIC) 72.dp else 0.dp,
+                    LocalNuvioBottomNavigationOverlayPadding provides if (!isTabletLayout && navBarStyleSetting != NavBarStyle.CLASSIC) 72.dp else 0.dp,
                     LocalNuvioNavBarScrollState provides navBarScrollState,
                 ) {
                     AppTabHost(
@@ -175,7 +165,7 @@ internal fun MainTabsDestination(
                     )
                 }
 
-                if (isTabletLayout && !useNativeBottomTabs) {
+                if (isTabletLayout) {
                     val tabletNavBarScrollState = remember { NuvioNavBarScrollState().apply { collapse() } }
                     FloatingNavigationBar(
                         modifier = Modifier.align(Alignment.TopCenter).widthIn(max = 416.dp),
@@ -191,7 +181,7 @@ internal fun MainTabsDestination(
                     )
                 }
 
-                if (!isTabletLayout && !useNativeBottomTabs && navBarStyleSetting != NavBarStyle.CLASSIC) {
+                if (!isTabletLayout && navBarStyleSetting != NavBarStyle.CLASSIC) {
                     when (navBarStyleSetting) {
                         NavBarStyle.EXPANDED -> navBarScrollState.expand()
                         NavBarStyle.COMPACT -> navBarScrollState.collapse()

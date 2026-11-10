@@ -2,7 +2,6 @@ package com.nuvio.app.features.settings
 
 import com.nuvio.app.core.ui.AppTheme
 import com.nuvio.app.core.ui.CustomThemeColors
-import com.nuvio.app.core.ui.NativeTabBridge
 import com.nuvio.app.core.ui.ThemeColors
 import com.nuvio.app.features.membership.MemberAccessRepository
 import com.nuvio.app.features.membership.availableAppThemes
@@ -31,8 +30,6 @@ object ThemeSettingsRepository {
     private val _amoledEnabled = MutableStateFlow(false)
     val amoledEnabled: StateFlow<Boolean> = _amoledEnabled.asStateFlow()
 
-    private val _liquidGlassNativeTabBarEnabled = MutableStateFlow(false)
-    val liquidGlassNativeTabBarEnabled: StateFlow<Boolean> = _liquidGlassNativeTabBarEnabled.asStateFlow()
 
     private val _selectedAppLanguage = MutableStateFlow(AppLanguage.DEVICE)
     val selectedAppLanguage: StateFlow<AppLanguage> = _selectedAppLanguage.asStateFlow()
@@ -63,9 +60,6 @@ object ThemeSettingsRepository {
         _customThemePreference.value = CustomThemeColors.Default
         _customThemeColors.value = CustomThemeColors.solid(CustomThemeColors.Default.second)
         _amoledEnabled.value = false
-        _liquidGlassNativeTabBarEnabled.value = false
-        NativeTabBridge.publishAccentColor(ThemeColors.White.nativeAccentHex)
-        NativeTabBridge.publishLiquidGlassEnabled(false)
         _selectedAppLanguage.value = AppLanguage.DEVICE
         _navBarGlowEnabled.value = true
         _navBarStyle.value = NavBarStyle.ADAPTIVE
@@ -87,9 +81,6 @@ object ThemeSettingsRepository {
         _customThemePreference.value = CustomThemeColors.decode(ThemeSettingsStorage.loadCustomThemeColors())
         applyEffectiveTheme()
         _amoledEnabled.value = ThemeSettingsStorage.loadAmoledEnabled() ?: false
-        val liquidGlassEnabled = ThemeSettingsStorage.loadLiquidGlassNativeTabBarEnabled() ?: false
-        _liquidGlassNativeTabBarEnabled.value = liquidGlassEnabled
-        NativeTabBridge.publishLiquidGlassEnabled(liquidGlassEnabled)
         val appLanguage = AppLanguage.fromCode(ThemeSettingsStorage.loadSelectedAppLanguage())
         ThemeSettingsStorage.applySelectedAppLanguage(appLanguage.code)
         _selectedAppLanguage.value = appLanguage
@@ -123,14 +114,6 @@ object ThemeSettingsRepository {
         if (_amoledEnabled.value == enabled) return
         _amoledEnabled.value = enabled
         ThemeSettingsStorage.saveAmoledEnabled(enabled)
-    }
-
-    fun setLiquidGlassNativeTabBar(enabled: Boolean) {
-        ensureLoaded()
-        if (_liquidGlassNativeTabBarEnabled.value == enabled) return
-        _liquidGlassNativeTabBarEnabled.value = enabled
-        ThemeSettingsStorage.saveLiquidGlassNativeTabBarEnabled(enabled)
-        NativeTabBridge.publishLiquidGlassEnabled(enabled)
     }
 
     fun setAppLanguage(language: AppLanguage) {
@@ -174,8 +157,5 @@ object ThemeSettingsRepository {
         )
         _customThemeColors.value = resolveCustomThemeColors(_customThemePreference.value, access.tier)
         _selectedTheme.value = effective
-        NativeTabBridge.publishAccentColor(
-            ThemeColors.getColorPalette(effective, _customThemeColors.value).nativeAccentHex,
-        )
     }
 }

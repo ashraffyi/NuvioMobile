@@ -5,7 +5,6 @@ import com.nuvio.app.features.player.AndroidPlaybackEngine
 import com.nuvio.app.features.player.PlayerSettingsRepository
 import com.nuvio.app.features.streams.StreamItem
 import com.nuvio.app.features.streams.StreamProxyHeaders
-import com.nuvio.app.isIos
 import kotlinx.atomicfu.locks.SynchronizedObject
 import kotlinx.atomicfu.locks.synchronized
 import kotlinx.coroutines.CancellationException
@@ -148,7 +147,7 @@ internal object ServerPlayback {
     private fun List<ServerTrack>.selectedIndex(): Int? = firstOrNull { it.selected }?.index
 
     private fun capabilities() = ServerPlayerCapabilities(
-        directPlayAll = isIos ||
+        directPlayAll =
             PlayerSettingsRepository.uiState.value.androidPlaybackEngine == AndroidPlaybackEngine.Libmpv,
     )
 

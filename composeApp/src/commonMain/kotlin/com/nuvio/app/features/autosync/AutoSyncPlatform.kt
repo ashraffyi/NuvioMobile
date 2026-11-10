@@ -4,7 +4,7 @@ import kotlin.time.TimeSource
 
 /*
  * The few platform services AutoSync needs. Everything else in the AutoSync engine is shared,
- * so Android, iOS and desktop run the same analysis.
+ * so it can run as plain Kotlin and be unit-tested off-device.
  */
 
 private val autoSyncClockOrigin = TimeSource.Monotonic.markNow()

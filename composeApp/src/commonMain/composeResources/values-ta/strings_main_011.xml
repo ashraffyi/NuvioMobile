@@ -90,14 +90,12 @@
     <string name="settings_playback_enable_libass">ASS/SSA வசனங்களுக்கு libass-ஐப் பயன்படுத்து</string>
     <string name="settings_playback_enable_libass_description">சோதனை அம்சம்: மேம்பட்ட ASS/SSA காட்சியமைப்பு (பாணிகள், நிலைநிறுத்தம், அனிமேஷன்கள்)</string>
     <string name="settings_playback_external_player">வெளிப்புற பிளேயர்</string>
-    <string name="settings_playback_external_player_app">வெளிப்புற பிளேயர் பயன்பாடு</string>
     <string name="settings_playback_external_player_description_android">Android-இன் இயல்புநிலை வீடியோ பயன்பாடு அல்லது கணினித் தேர்வி மூலம் புதிய பிளேபேக்கைத் திறக்கவும்.</string>
     <string name="settings_playback_external_player_description_ios">தேர்ந்தெடுத்த நிறுவப்பட்ட பிளேயரில் புதிய பிளேபேக்கைத் திறக்கவும்.</string>
     <string name="settings_playback_external_player_forward_subtitles">வசன வரிகளை வெளிப்புற பிளேயருக்கு அனுப்பு</string>
     <string name="settings_playback_external_player_forward_subtitles_description">விருப்பமான மொழியில் துணைநிரல் வசன வரிகளைப் பெற்று வெளிப்புற பிளேயருக்கு அனுப்பவும்.</string>
     <string name="settings_playback_external_player_send_skip_segments">Intro மற்றும் Outro நேரக் குறியீடுகளை அனுப்பு</string>
     <string name="settings_playback_external_player_send_skip_segments_description">கிடைக்கும் அனைத்து எபிசோடு மற்றும் திரைப்பட skip நேரக் குறியீடுகளையும் அனுப்பவும். இந்த அமைப்புகளிலிருந்து தனியாக skip செய்வதை வெளிப்புற பிளேயர் கட்டுப்படுத்தும்.</string>
-    <string name="settings_playback_external_player_none_available">ஆதரிக்கப்படும் வெளிப்புற பிளேயர்கள் நிறுவப்படவில்லை</string>
     <string name="settings_playback_player_preference">பிளேயர்</string>
     <string name="settings_playback_player_preference_internal">உள் பிளேயர்</string>
 </resources>
