@@ -65,7 +65,6 @@ import com.nuvio.app.features.tmdb.TmdbEntityRailType
 import com.nuvio.app.features.tmdb.TmdbMetadataService
 import com.nuvio.app.core.poster.withCustomPosterUrls
 import com.nuvio.app.features.watched.WatchedRepository
-import com.nuvio.app.navigation.LocalUseNativeNavigation
 
 private sealed interface EntityBrowseUiState {
     data object Loading : EntityBrowseUiState
@@ -136,20 +135,18 @@ fun TmdbEntityBrowseScreen(
             }
         }
 
-        if (!LocalUseNativeNavigation.current) {
-            IconButton(
-                onClick = onBack,
-                modifier = Modifier
-                    .windowInsetsPadding(WindowInsets.statusBars)
-                    .padding(start = 4.dp, top = 4.dp)
-                    .align(Alignment.TopStart),
-            ) {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
-                    contentDescription = stringResource(Res.string.action_back),
-                    tint = MaterialTheme.colorScheme.onSurface,
-                )
-            }
+        IconButton(
+            onClick = onBack,
+            modifier = Modifier
+                .windowInsetsPadding(WindowInsets.statusBars)
+                .padding(start = 4.dp, top = 4.dp)
+                .align(Alignment.TopStart),
+        ) {
+            Icon(
+                imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
+                contentDescription = stringResource(Res.string.action_back),
+                tint = MaterialTheme.colorScheme.onSurface,
+            )
         }
     }
 }

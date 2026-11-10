@@ -75,7 +75,6 @@ import coil3.compose.AsyncImage
 import com.nuvio.app.core.ui.NuvioTokens
 import com.nuvio.app.core.ui.nuvio
 import dev.chrisbanes.haze.HazeState
-import com.nuvio.app.isIos
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import nuvio.composeapp.generated.resources.*
@@ -122,11 +121,7 @@ fun ProfileSwitcherTab(
     }
 
     fun performProfileHoverHaptic() {
-        if (isIos) {
-            ProfileHoverHapticFeedback.perform()
-        } else {
-            haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
-        }
+        haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
     }
 
     fun updateDragTarget(localPosition: Offset) {
@@ -185,7 +180,6 @@ fun ProfileSwitcherTab(
                 )
             }
         } else {
-            ProfileHoverHapticFeedback.release()
             // Animate out
             launch { popupAlpha.animateTo(0f, tween(140, easing = FastOutSlowInEasing)) }
             launch {
@@ -211,7 +205,6 @@ fun ProfileSwitcherTab(
                     onDragStart = { startOffset ->
                         if (profiles.isNotEmpty()) {
                             performProfileHoldHaptic()
-                            ProfileHoverHapticFeedback.prepare()
                             profileBubbleBounds.clear()
                             dragTargetProfileIndex = null
                             showPopup = true
@@ -223,11 +216,9 @@ fun ProfileSwitcherTab(
                         updateDragTarget(change.position)
                     },
                     onDragEnd = {
-                        ProfileHoverHapticFeedback.release()
                         chooseDragTarget()
                     },
                     onDragCancel = {
-                        ProfileHoverHapticFeedback.release()
                         dragTargetProfileIndex = null
                     },
                 )

@@ -13,7 +13,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.nuvio.app.isIos
 import nuvio.composeapp.generated.resources.Res
 import nuvio.composeapp.generated.resources.compose_player_resize_fill
 import nuvio.composeapp.generated.resources.compose_player_resize_fit
@@ -131,7 +130,7 @@ internal fun playerHorizontalSafePadding(): Dp {
 internal fun playerTimelineBottomInsets(metrics: PlayerLayoutMetrics): WindowInsets {
     val safeInsets = WindowInsets.safeContent.only(WindowInsetsSides.Bottom)
     val contentInsets = WindowInsets(bottom = metrics.sliderBottomOffset / 2)
-    return if (isIos) safeInsets.union(contentInsets) else safeInsets.add(contentInsets)
+    return safeInsets.add(contentInsets)
 }
 
 internal fun PlayerResizeMode.next(): PlayerResizeMode =

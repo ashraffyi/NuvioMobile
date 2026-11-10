@@ -596,9 +596,6 @@
     <string name="settings_licenses_attributions_mdblist_body">Nuvio ratings، watched history اور playback tracking کے لیے MDBList استعمال کرتا ہے۔ Nuvio کا MDBList سے کوئی الحاق نہیں اور نہ ہی MDBList اس کی توثیق کرتا ہے۔</string>
     <string name="settings_licenses_attributions_introdb_title">IntroDB</string>
     <string name="settings_licenses_attributions_introdb_body">Nuvio، community-provided intro، recap، credits اور preview timestamps کے لیے IntroDB API استعمال کرتا ہے، جنہیں skip controls استعمال کرتے ہیں۔ Nuvio کا IntroDB سے کوئی الحاق نہیں اور نہ ہی IntroDB اس کی توثیق کرتا ہے۔</string>
-    <string name="settings_licenses_attributions_mpvkit_title">MPVKit</string>
-    <string name="settings_licenses_attributions_mpvkit_body">iOS builds پر پلے بیک کے لیے استعمال ہوتا ہے۔</string>
-    <string name="settings_licenses_attributions_mpvkit_license">صرف MPVKit source، LGPL v3.0 کے تحت لائسنس یافتہ ہے۔ MPVKit bundles، جن میں libmpv اور FFmpeg libraries شامل ہیں، بھی LGPL v3.0 کے تحت لائسنس یافتہ ہیں۔</string>
     <string name="settings_licenses_attributions_exoplayer_title">AndroidX Media3 ExoPlayer 1.8.0</string>
     <string name="settings_licenses_attributions_exoplayer_body">Android builds پر پلے بیک کے لیے استعمال ہوتا ہے۔</string>
     <string name="settings_licenses_attributions_exoplayer_license">Apache License، Version 2.0 کے تحت لائسنس یافتہ۔</string>
@@ -690,8 +687,6 @@
     <string name="settings_nav_bar_style_compact">ہمیشہ مختصر</string>
     <string name="settings_nav_bar_style_classic">کلاسک</string>
     <string name="settings_appearance_continue_watching_description">Continue Watching سیکشن کی ترتیبات۔</string>
-    <string name="settings_appearance_liquid_glass">لیکوئڈ گلاس</string>
-    <string name="settings_appearance_liquid_glass_description">iOS 26 یا بعد کے ورژن پر native iPhone tab bar استعمال کریں۔</string>
     <string name="settings_appearance_poster_customization_description">Card کی چوڑائی اور corner radius ترتیب دیں۔</string>
     <string name="settings_appearance_section_display">ڈسپلے</string>
     <string name="settings_appearance_section_home">ہوم</string>
@@ -1072,14 +1067,12 @@
     <string name="settings_playback_enable_libass">ASS/SSA سب ٹائٹلز کے لیے libass استعمال کریں</string>
     <string name="settings_playback_enable_libass_description">تجرباتی: advanced ASS/SSA rendering، جس میں styles، positioning اور animations شامل ہیں۔</string>
     <string name="settings_playback_external_player">بیرونی پلیئر</string>
-    <string name="settings_playback_external_player_app">بیرونی پلیئر ایپ</string>
     <string name="settings_playback_external_player_description_android">نیا playback Android کی default video app یا system chooser میں کھولیں۔</string>
     <string name="settings_playback_external_player_description_ios">نیا playback منتخب installed player میں کھولیں۔</string>
     <string name="settings_playback_external_player_forward_subtitles">سب ٹائٹلز External Player کو بھیجیں</string>
     <string name="settings_playback_external_player_forward_subtitles_description">اپنی پسندیدہ زبان میں Addon subtitles حاصل کریں اور انہیں External Player کو بھیجیں۔</string>
     <string name="settings_playback_external_player_send_skip_segments">Intro اور Outro Timestamps بھیجیں</string>
     <string name="settings_playback_external_player_send_skip_segments_description">دستیاب episode اور movie skip timestamps External Player کو بھیجیں۔ Skip کرنے کا کنٹرول External Player کے پاس ہوگا۔</string>
-    <string name="settings_playback_external_player_none_available">کوئی supported External Player انسٹال نہیں ہے</string>
     <string name="settings_playback_player_preference">پلیئر</string>
     <string name="settings_playback_player_preference_internal">اندرونی</string>
     <string name="settings_playback_player_preference_external">بیرونی</string>
@@ -1952,49 +1945,8 @@
     <string name="unit_bytes_gb">GB</string>
     <!-- PlayerControls a11y -->
     <string name="player_action_submit_intro">انٹرو جمع کریں</string>
-    <string name="player_action_video_settings">ویڈیو ترتیبات</string>
     <!-- CloudLibrary -->
     <string name="cloud_library_provider_unavailable">%1$s کے لیے Cloud Library دستیاب نہیں ہے۔</string>
-    <!-- Player iOS video settings modal -->
-    <string name="player_video_settings_title">ویڈیو</string>
-    <string name="player_video_settings_reset_tuning">ٹیوننگ ری سیٹ کریں</string>
-    <string name="player_video_settings_output_preset">آؤٹ پٹ پری سیٹ</string>
-    <string name="player_video_settings_hdr_peak_detection">HDR peak detection</string>
-    <string name="player_video_settings_hdr_peak_detection_desc">اگر metadata غلط یا موجود نہ ہو تو HDR کی زیادہ سے زیادہ brightness کا اندازہ لگائیں۔</string>
-    <string name="player_video_settings_tone_mapping">Tone mapping</string>
-    <string name="player_video_settings_deband">Deband</string>
-    <string name="player_video_settings_deband_desc">معمولی performance cost کے ساتھ color banding کم کریں۔</string>
-    <string name="player_video_settings_interpolation">Frame interpolation</string>
-    <string name="player_video_settings_interpolation_desc">جب mpv display sync درست طور پر استعمال کر سکے تو motion کو ہموار کریں۔</string>
-    <string name="player_video_settings_brightness">روشنائی</string>
-    <string name="player_video_settings_contrast">کنٹراسٹ</string>
-    <string name="player_video_settings_saturation">رنگوں کی شدت</string>
-    <string name="player_video_settings_gamma">Gamma</string>
-    <!-- iOS video output presets -->
-    <string name="player_ios_preset_native_edr_label">Native EDR</string>
-    <string name="player_ios_preset_native_edr_desc">HDR سپورٹ کرنے والے iPhones اور iPads کے لیے موزوں۔</string>
-    <string name="player_ios_preset_sdr_tone_mapped_label">SDR tone mapped</string>
-    <string name="player_ios_preset_sdr_tone_mapped_desc">SDR طرز کے آؤٹ پٹ پر سفید اور سیاہ رنگ زیادہ قابلِ پیش گوئی رہتے ہیں۔</string>
-    <string name="player_ios_preset_compatibility_label">مطابقت</string>
-    <string name="player_ios_preset_compatibility_desc">پرانے iOS MPV behavior کے سب سے قریب۔</string>
-    <string name="player_ios_preset_custom_label">حسبِ ضرورت</string>
-    <string name="player_ios_preset_custom_desc">نیچے اپنی advanced values استعمال کریں۔</string>
-    <string name="player_ios_hardware_decoder_off">بند</string>
-    <!-- Playback settings iOS video output -->
-    <string name="settings_playback_ios_video_output">iOS ویڈیو آؤٹ پٹ</string>
-    <string name="settings_playback_ios_hardware_decoder">ہارڈویئر Decoder</string>
-    <string name="settings_playback_ios_extended_dynamic_range">Extended Dynamic Range</string>
-    <string name="settings_playback_ios_extended_dynamic_range_desc">نئے playback sessions کے لیے ڈیفالٹ Metal output mode۔</string>
-    <string name="settings_playback_ios_display_color_hint">Display Color Hint</string>
-    <string name="settings_playback_ios_display_color_hint_desc">mpv کو بطور ڈیفالٹ فعال display color space کے مطابق output دینے دیں۔</string>
-    <string name="settings_playback_ios_target_primaries">Target primaries</string>
-    <string name="settings_playback_ios_target_transfer">Target transfer</string>
-    <!-- Playback settings iOS audio output -->
-    <string name="settings_playback_ios_audio_output_section">iOS آڈیو آؤٹ پٹ</string>
-    <string name="settings_playback_ios_audio_output">آڈیو آؤٹ پٹ</string>
-    <string name="settings_playback_ios_audio_output_auto_desc">جب AVFoundation output عارضی طور پر بند ہو تو AudioUnit استعمال کریں۔</string>
-    <string name="settings_playback_ios_audio_output_avfoundation_desc">Spatial Audio اور multichannel output کے لیے تجرباتی support۔</string>
-    <string name="settings_playback_ios_audio_output_audiounit_desc">پرانا AudioUnit output استعمال کریں۔</string>
     <!-- Debrid Result Management section -->
     <string name="settings_debrid_section_result_management">نتائج کا انتظام</string>
     <string name="settings_debrid_max_results">زیادہ سے زیادہ نتائج</string>
@@ -2093,11 +2045,6 @@
     <string name="submit_intro_end_time">اختتام کا وقت (MM:SS)</string>
     <string name="submit_intro_submit">جمع کریں</string>
     <string name="submit_intro_capture">کیپچر کریں</string>
-    <!-- iOS advanced playback -->
-    <string name="settings_playback_ios_hw_decoder_dialog">ہارڈویئر Decoder</string>
-    <string name="settings_playback_ios_audio_output_dialog">آڈیو آؤٹ پٹ</string>
-    <string name="settings_playback_ios_target_primaries_dialog">Target primaries</string>
-    <string name="settings_playback_ios_target_transfer_dialog">Target transfer</string>
     <!-- Collection editor -->
     <string name="collections_editor_resolved_trakt_list">شناخت شدہ Trakt فہرست</string>
     <string name="collections_editor_tmdb_discover">TMDB Discover</string>
@@ -2155,17 +2102,12 @@
     <string name="details_runtime_hours_minutes">%1$d گھنٹے %2$d منٹ</string>
     <string name="details_runtime_hours_only">%1$d گھنٹے</string>
     <string name="details_runtime_minutes_only">%1$d منٹ</string>
-    <string name="downloads_error_finalize_file_failed">ڈاؤن لوڈ فائل مکمل نہیں کی جا سکی</string>
-    <string name="downloads_error_open_partial_file_failed">جزوی ڈاؤن لوڈ فائل نہیں کھولی جا سکی</string>
-    <string name="downloads_error_partial_file_not_open">جزوی ڈاؤن لوڈ فائل کھلی نہیں ہے</string>
-    <string name="downloads_error_write_partial_file_failed">جزوی ڈاؤن لوڈ فائل میں لکھا نہیں جا سکا</string>
     <string name="library_local_tab_title">Nuvio لائبریری</string>
     <string name="network_connection_issue">کنکشن میں مسئلہ</string>
     <string name="network_empty_response_body">جواب کا متن خالی ہے</string>
     <string name="network_please_check_connection">اپنا کنکشن چیک کریں اور دوبارہ کوشش کریں۔</string>
     <string name="network_request_failed_http">درخواست HTTP %1$d کے ساتھ ناکام ہوئی</string>
     <string name="player_addon_subtitle_display_format">%1$s (%2$s)</string>
-    <string name="player_error_mpv_unavailable">MPV پلیئر انجن دستیاب نہیں۔ براہِ کرم ایپ کو دوبارہ build کریں۔</string>
     <string name="player_error_unable_to_play_stream">یہ اسٹریم چلائی نہیں جا سکی۔</string>
     <string name="plugins_badge_disabled">Plugins غیر فعال</string>
     <string name="plugins_badge_enabled">Plugins فعال</string>

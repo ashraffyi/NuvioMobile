@@ -2,7 +2,6 @@ package com.nuvio.app.features.player
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import com.nuvio.app.isIos
 import nuvio.composeapp.generated.resources.Res
 import nuvio.composeapp.generated.resources.compose_player_track_number
 import org.jetbrains.compose.resources.stringResource
@@ -84,7 +83,7 @@ internal fun audioAmplificationGain(db: Int): Double =
     10.0.pow(db.coerceIn(AUDIO_AMPLIFICATION_MIN_DB, AUDIO_AMPLIFICATION_MAX_DB) / 20.0)
 
 internal val subtitleFontSizeRangeSp: IntRange
-    get() = if (isIos) 6..40 else 12..40
+    get() = 12..40
 
 data class SubtitleStyleState(
     val textColor: Color = Color.White,

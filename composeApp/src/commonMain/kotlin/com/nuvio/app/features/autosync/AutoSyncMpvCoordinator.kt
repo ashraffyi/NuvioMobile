@@ -29,7 +29,7 @@ internal interface AutoSyncMpvPlatform {
 }
 
 /**
- * AutoSync for one mpv source (Android libmpv, iOS MPVKit). mpv exposes no embedded subtitle
+ * AutoSync for one libmpv source. mpv exposes no embedded subtitle
  * timing while it plays, so only the container's own subtitle index serves as the reference.
  * The original subtitle shows right away; a confident result replaces it with a copy whose
  * timestamps are rewritten.
@@ -199,7 +199,7 @@ internal class AutoSyncMpvCoordinator(
 /**
  * A player's mpv controller with AutoSync layered on top. Every call is forwarded to [base]
  * unchanged; subtitle changes first stop any AutoSync run that still targets the old subtitle.
- * Open so a platform can keep extra interfaces of its controller (iOS system controls).
+ * Open so a platform can keep extra interfaces of its controller.
  */
 internal open class AutoSyncMpvEngineController(
     private val base: PlayerEngineController,

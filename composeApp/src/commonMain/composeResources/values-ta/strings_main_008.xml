@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="settings_appearance_liquid_glass_description">iOS 26 மற்றும் அதற்குப் பிந்தைய பதிப்புகளில் இயல்பான iPhone தாவல் பட்டியைப் பயன்படுத்தவும்.</string>
     <string name="settings_appearance_poster_customization_description">அட்டையின் அகலத்தையும் மூலை வளைவையும் சரிசெய்யவும்.</string>
     <string name="settings_appearance_section_display">காட்சி</string>
     <string name="settings_appearance_section_home">முகப்பு</string>

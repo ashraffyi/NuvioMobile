@@ -55,7 +55,6 @@ class CustomThemeColorsTest {
         assertEquals(Color.Black, palette.onSecondary)
         assertEquals(Color.White, palette.onSecondaryVariant)
         assertEquals(Color.White, palette.focusRing)
-        assertEquals("#FFFFFF", palette.nativeAccentHex)
         assertTrue(palette.background.luminance() < 0.02f)
         assertEquals(ThemeColors.White, ThemeColors.getColorPalette(AppTheme.WHITE, CustomThemeColors(0, 0, 0)))
     }
@@ -73,7 +72,6 @@ class CustomThemeColorsTest {
         assertEquals(color, assertIs<SolidColor>(palette.accentBrush()).value)
         assertEquals(color, palette.secondary)
         assertEquals(color, palette.secondaryVariant)
-        assertEquals("#123456", palette.nativeAccentHex)
     }
 
     @Test

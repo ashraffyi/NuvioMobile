@@ -20,7 +20,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
@@ -30,7 +29,6 @@ import com.nuvio.app.core.ui.NuvioModalBottomSheet
 import com.nuvio.app.core.ui.NuvioStatusModal
 import com.nuvio.app.core.ui.dismissNuvioBottomSheet
 import com.nuvio.app.core.ui.labelRes
-import com.nuvio.app.isIos
 import kotlinx.coroutines.launch
 import nuvio.composeapp.generated.resources.Res
 import nuvio.composeapp.generated.resources.cd_selected
@@ -38,8 +36,6 @@ import nuvio.composeapp.generated.resources.settings_appearance_amoled_black
 import nuvio.composeapp.generated.resources.settings_appearance_amoled_description
 import nuvio.composeapp.generated.resources.settings_appearance_app_icon
 import nuvio.composeapp.generated.resources.settings_appearance_app_language
-import nuvio.composeapp.generated.resources.settings_appearance_app_language_restart_message
-import nuvio.composeapp.generated.resources.settings_appearance_app_language_restart_title
 import nuvio.composeapp.generated.resources.settings_appearance_app_language_sheet_title
 import nuvio.composeapp.generated.resources.settings_appearance_section_display
 import nuvio.composeapp.generated.resources.settings_appearance_section_theme
@@ -74,8 +70,6 @@ internal fun LazyListScope.appearanceSettingsContent(
     }
     item {
         var showLanguageSheet by remember { mutableStateOf(false) }
-        var showLanguageRestartDialog by remember { mutableStateOf(false) }
-        val layoutDirection = LocalLayoutDirection.current
         var showAppIconPicker by remember { mutableStateOf(false) }
         SettingsSection(
             title = stringResource(Res.string.settings_appearance_section_display),
@@ -123,19 +117,10 @@ internal fun LazyListScope.appearanceSettingsContent(
                 onLanguageSelected = {
                     onAppLanguageSelected(it)
                     showLanguageSheet = false
-                    val newLayoutDirection = if (it.isRightToLeft()) LayoutDirection.Rtl else LayoutDirection.Ltr
-                    if (isIos && newLayoutDirection != layoutDirection) showLanguageRestartDialog = true
                 },
                 onDismiss = { showLanguageSheet = false },
             )
         }
-
-        NuvioStatusModal(
-            title = stringResource(Res.string.settings_appearance_app_language_restart_title),
-            message = stringResource(Res.string.settings_appearance_app_language_restart_message),
-            isVisible = showLanguageRestartDialog,
-            onConfirm = { showLanguageRestartDialog = false },
-        )
 
         if (showAppIconPicker) {
             AppIconPicker(

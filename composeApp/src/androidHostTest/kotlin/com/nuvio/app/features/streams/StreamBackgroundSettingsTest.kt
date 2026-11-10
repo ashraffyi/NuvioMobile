@@ -141,7 +141,6 @@ class StreamBackgroundSettingsTest {
                     supportersContributorsPageEnabled = false,
                     accountDeletionEnabled = false,
                     personalMediaAddonCopyEnabled = false,
-                    liquidGlassNativeTabBarSupported = false,
                     switchProfileAvailable = false,
                     checkForUpdatesAvailable = false,
                 )

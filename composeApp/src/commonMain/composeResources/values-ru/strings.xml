@@ -587,9 +587,6 @@
     <string name="settings_licenses_attributions_mdblist_body">Nuvio использует MDBList для рейтингов и данных внешнего поставщика оценок. Nuvio не связан с MDBList и не одобрен ею.</string>
     <string name="settings_licenses_attributions_introdb_title">IntroDB</string>
     <string name="settings_licenses_attributions_introdb_body">Nuvio использует IntroDB API для предоставленных сообществом временных меток вступлений, кратких пересказов, титров и превью, которые используются кнопками пропуска. Nuvio не связан с IntroDB и не одобрен этим сервисом.</string>
-    <string name="settings_licenses_attributions_mpvkit_title">MPVKit</string>
-    <string name="settings_licenses_attributions_mpvkit_body">Используется для воспроизведения на сборках iOS.</string>
-    <string name="settings_licenses_attributions_mpvkit_license">Только исходный код MPVKit лицензируется по лицензии LGPL v3.0. Пакеты MPVKit, включая библиотеки libmpv и FFmpeg, также лицензируются по лицензии LGPL v3.0.</string>
     <string name="settings_licenses_attributions_exoplayer_title">AndroidX Media3 ExoPlayer 1.8.0</string>
     <string name="settings_licenses_attributions_exoplayer_body">Используется для воспроизведения на сборках Android.</string>
     <string name="settings_licenses_attributions_exoplayer_license">Лицензия Apache, версия 2.0.</string>
@@ -674,8 +671,6 @@
     <string name="settings_nav_bar_style_compact">Всегда компактный</string>
     <string name="settings_nav_bar_style_classic">Классический</string>
     <string name="settings_appearance_continue_watching_description">Настройки раздела «Продолжить просмотр».</string>
-    <string name="settings_appearance_liquid_glass">Жидкое стекло</string>
-    <string name="settings_appearance_liquid_glass_description">Используйте встроенную панель вкладок iPhone в iOS 26 и более поздних версиях.</string>
     <string name="settings_appearance_poster_customization_description">Настройте ширину карты и радиус угла.</string>
     <string name="settings_appearance_section_display">ДИСПЛЕЙ</string>
     <string name="settings_appearance_section_home">ГЛАВНАЯ</string>
@@ -1034,14 +1029,12 @@
     <string name="settings_playback_enable_libass">Используйте libass для субтитров ASS/SSA</string>
     <string name="settings_playback_enable_libass_description">Экспериментально: расширенный рендеринг ASS/SSA (стили, позиционирование, анимация)</string>
     <string name="settings_playback_external_player">Внешний проигрыватель</string>
-    <string name="settings_playback_external_player_app">Приложение внешнего проигрывателя</string>
     <string name="settings_playback_external_player_description_android">Откройте новое воспроизведение с помощью видеоприложения Android по умолчанию или средства выбора системы.</string>
     <string name="settings_playback_external_player_description_ios">Откройте новое воспроизведение с выбранным установленным плеером.</string>
     <string name="settings_playback_external_player_forward_subtitles">Переслать субтитры на внешний проигрыватель</string>
     <string name="settings_playback_external_player_forward_subtitles_description">Получите субтитры дополнения на предпочитаемом вами языке и передайте их внешнему проигрывателю.</string>
     <string name="settings_playback_external_player_send_skip_segments">Отправка временных меток вступления и завершения</string>
     <string name="settings_playback_external_player_send_skip_segments_description">Передайте распознанные временные метки вступления и концовки внешнему проигрывателю для автоматического пропуска. Работает только в проигрывателях, которые это поддерживают; остальные проигрыватели игнорируют данные.</string>
-    <string name="settings_playback_external_player_none_available">Не установлены поддерживаемые внешние проигрыватели.</string>
     <string name="settings_playback_player_preference">Проигрыватель</string>
     <string name="settings_playback_player_preference_internal">Встроенный</string>
     <string name="settings_playback_player_preference_external">Внешний</string>
@@ -1870,49 +1863,8 @@
     <string name="unit_bytes_gb">ГБ</string>
     <!-- PlayerControls a11y -->
     <string name="player_action_submit_intro">Отправить заставку</string>
-    <string name="player_action_video_settings">Настройки видео</string>
     <!-- CloudLibrary -->
     <string name="cloud_library_provider_unavailable">Облачная библиотека недоступна для %1$s.</string>
-    <!-- Player iOS video settings modal -->
-    <string name="player_video_settings_title">Видео</string>
-    <string name="player_video_settings_reset_tuning">Сбросить настройки</string>
-    <string name="player_video_settings_output_preset">Пресет вывода</string>
-    <string name="player_video_settings_hdr_peak_detection">Обнаружение пиков HDR</string>
-    <string name="player_video_settings_hdr_peak_detection_desc">Оцените пиковую яркость HDR, когда метаданные повреждены или отсутствуют.</string>
-    <string name="player_video_settings_tone_mapping">Отображение тонов</string>
-    <string name="player_video_settings_deband">Дебанд</string>
-    <string name="player_video_settings_deband_desc">Уменьшите цветные полосы при небольших затратах на производительность.</string>
-    <string name="player_video_settings_interpolation">Интерполяция кадров</string>
-    <string name="player_video_settings_interpolation_desc">Плавное движение, когда mpv может аккуратно использовать синхронизацию дисплея.</string>
-    <string name="player_video_settings_brightness">Яркость</string>
-    <string name="player_video_settings_contrast">Контраст</string>
-    <string name="player_video_settings_saturation">Насыщенность</string>
-    <string name="player_video_settings_gamma">Гамма</string>
-    <!-- iOS video output presets -->
-    <string name="player_ios_preset_native_edr_label">Нативный EDR</string>
-    <string name="player_ios_preset_native_edr_desc">Лучше всего подходит для iPhone и iPad с поддержкой HDR.</string>
-    <string name="player_ios_preset_sdr_tone_mapped_label">SDR тональная карта</string>
-    <string name="player_ios_preset_sdr_tone_mapped_desc">Более предсказуемые белые и черные цвета на выходе в стиле SDR.</string>
-    <string name="player_ios_preset_compatibility_label">Совместимость</string>
-    <string name="player_ios_preset_compatibility_desc">Наиболее близок к поведению более старого MPV iOS.</string>
-    <string name="player_ios_preset_custom_label">Пользовательский</string>
-    <string name="player_ios_preset_custom_desc">Используйте дополнительные значения ниже.</string>
-    <string name="player_ios_hardware_decoder_off">Выкл.</string>
-    <!-- Playback settings iOS video output -->
-    <string name="settings_playback_ios_video_output">iOS ВИДЕО ВЫХОД</string>
-    <string name="settings_playback_ios_hardware_decoder">Аппаратный декодер</string>
-    <string name="settings_playback_ios_extended_dynamic_range">Расширенный динамический диапазон</string>
-    <string name="settings_playback_ios_extended_dynamic_range_desc">Режим вывода Metal по умолчанию для новых сеансов воспроизведения.</string>
-    <string name="settings_playback_ios_display_color_hint">Цветовая подсказка дисплея</string>
-    <string name="settings_playback_ios_display_color_hint_desc">Пусть mpv по умолчанию нацеливается на активное цветовое пространство дисплея.</string>
-    <string name="settings_playback_ios_target_primaries">Целевые основные цвета</string>
-    <string name="settings_playback_ios_target_transfer">Целевой трансфер</string>
-    <!-- Playback settings iOS audio output -->
-    <string name="settings_playback_ios_audio_output_section">iOS АУДИОВЫХОД</string>
-    <string name="settings_playback_ios_audio_output">Аудиовыход</string>
-    <string name="settings_playback_ios_audio_output_auto_desc">Используйте AudioUnit, пока выход AVFoundation временно отключен.</string>
-    <string name="settings_playback_ios_audio_output_avfoundation_desc">Экспериментальная поддержка пространственного звука и многоканального вывода.</string>
-    <string name="settings_playback_ios_audio_output_audiounit_desc">Используйте устаревший вывод AudioUnit.</string>
     <!-- Debrid Result Management section -->
     <string name="settings_debrid_section_result_management">УПРАВЛЕНИЕ РЕЗУЛЬТАТОМ</string>
     <string name="settings_debrid_max_results">Максимальные результаты</string>
@@ -2011,11 +1963,6 @@
     <string name="submit_intro_end_time">ВРЕМЯ КОНЦА (ММ:СС)</string>
     <string name="submit_intro_submit">Отправить</string>
     <string name="submit_intro_capture">Захват</string>
-    <!-- iOS advanced playback -->
-    <string name="settings_playback_ios_hw_decoder_dialog">Аппаратный декодер</string>
-    <string name="settings_playback_ios_audio_output_dialog">Аудиовыход</string>
-    <string name="settings_playback_ios_target_primaries_dialog">Целевые основные цвета</string>
-    <string name="settings_playback_ios_target_transfer_dialog">Целевой трансфер</string>
     <!-- Collection editor -->
     <string name="collections_editor_resolved_trakt_list">Разрешенный список Trakt</string>
     <string name="collections_editor_tmdb_discover">TMDB Discover</string>
@@ -2073,17 +2020,12 @@
     <string name="details_runtime_hours_minutes">%1$dh %2$dm</string>
     <string name="details_runtime_hours_only">%1$dh</string>
     <string name="details_runtime_minutes_only">%1$dm</string>
-    <string name="downloads_error_finalize_file_failed">Не удалось завершить загрузку файла.</string>
-    <string name="downloads_error_open_partial_file_failed">Не удалось открыть файл частичной загрузки.</string>
-    <string name="downloads_error_partial_file_not_open">Файл частичной загрузки не открыт</string>
-    <string name="downloads_error_write_partial_file_failed">Не удалось записать файл частичной загрузки.</string>
     <string name="library_local_tab_title">Библиотека Nuvio</string>
     <string name="network_connection_issue">Проблема с подключением</string>
     <string name="network_empty_response_body">Пустое тело ответа</string>
     <string name="network_please_check_connection">Пожалуйста, проверьте подключение и повторите попытку.</string>
     <string name="network_request_failed_http">Не удалось выполнить запрос с HTTP %1$d.</string>
     <string name="player_addon_subtitle_display_format">%1$s (%2$s)</string>
-    <string name="player_error_mpv_unavailable">Движок проигрывателя MPV недоступен. Пожалуйста, пересоберите приложение.</string>
     <string name="player_error_unable_to_play_stream">Невозможно воспроизвести этот поток.</string>
     <string name="plugins_badge_disabled">Плагины отключены</string>
     <string name="plugins_badge_enabled">Плагины включены</string>

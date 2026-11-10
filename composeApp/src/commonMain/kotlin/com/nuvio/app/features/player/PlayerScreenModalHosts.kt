@@ -55,10 +55,7 @@ internal fun PlayerScreenModalHosts(
     onAutoSyncCueSelected: (SubtitleSyncCue) -> Unit,
     onAutoSyncReload: () -> Unit,
     onSubtitleModalDismissed: () -> Unit,
-    showVideoSettingsModal: Boolean,
     playerSettings: PlayerSettingsUiState,
-    onVideoSettingsChanged: () -> Unit,
-    onVideoSettingsModalDismissed: () -> Unit,
     showSourcesPanel: Boolean,
     sourceStreamsState: StreamsUiState,
     contentTitle: String,
@@ -166,13 +163,6 @@ internal fun PlayerScreenModalHosts(
         onAutoSyncCueSelected = onAutoSyncCueSelected,
         onAutoSyncReload = onAutoSyncReload,
         onDismiss = onSubtitleModalDismissed,
-    )
-
-    IosVideoSettingsModal(
-        visible = showVideoSettingsModal,
-        settings = playerSettings,
-        onSettingsChanged = onVideoSettingsChanged,
-        onDismiss = onVideoSettingsModalDismissed,
     )
 
     PlayerSourcesPanel(

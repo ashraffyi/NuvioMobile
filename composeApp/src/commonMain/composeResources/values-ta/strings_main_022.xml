@@ -60,10 +60,6 @@
     <string name="submit_intro_end_time">முடிவு நேரம் (MM:SS)</string>
     <string name="submit_intro_submit">சமர்ப்பி</string>
     <string name="submit_intro_capture">பிடி</string>
-    <string name="settings_playback_ios_hw_decoder_dialog">வன்பொருள் decoder</string>
-    <string name="settings_playback_ios_audio_output_dialog">ஒலி வெளியீடு</string>
-    <string name="settings_playback_ios_target_primaries_dialog">இலக்கு முதன்மை நிறங்கள்</string>
-    <string name="settings_playback_ios_target_transfer_dialog">இலக்கு பரிமாற்றம்</string>
     <string name="collections_editor_resolved_trakt_list">கண்டறியப்பட்ட Trakt பட்டியல்</string>
     <string name="collections_editor_tmdb_discover">TMDB கண்டறிதல்</string>
     <string name="collections_editor_watch_region_placeholder">US, KR, JP, IN</string>

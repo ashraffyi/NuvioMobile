@@ -9,8 +9,6 @@ import com.nuvio.app.features.watchprogress.WatchProgressCodec
 import com.nuvio.app.features.watchprogress.WatchProgressPlaybackSession
 import com.nuvio.app.features.watchprogress.WatchProgressRepository
 import com.nuvio.app.features.watchprogress.WatchProgressStorage
-import io.ktor.http.Url
-import io.ktor.http.encodeURLParameter
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
@@ -49,35 +47,6 @@ class ExternalPlaybackProgressTest {
     fun cleanup() {
         WatchProgressRepository.clearLocalState()
         clearPreferences()
-    }
-
-    @Test
-    fun infuseReturnWithoutDurationPersistsResumeWithoutMarkingWatched() = runBlocking {
-        val result = infuseResult(positionSeconds = 1800, durationMs = null)
-        recordExternalPlaybackProgress(result, fallbackSession = null)
-        WatchProgressRepository.clearLocalState()
-        val entry = assertNotNull(WatchProgressRepository.progressForVideo("tt123"))
-        assertEquals(1_800_000L, entry.lastPositionMs)
-        assertEquals(0L, entry.durationMs)
-        assertFalse(entry.isCompleted)
-        assertTrue(entry.isResumable)
-    }
-
-    @Test
-    fun infuseUsesKnownDurationToRecognizeCompletion() = runBlocking {
-        recordExternalPlaybackProgress(infuseResult(3300, 3_600_000L), fallbackSession = null)
-        val entry = assertNotNull(WatchProgressRepository.progressForVideo("tt123"))
-        assertTrue(entry.isCompleted)
-        assertEquals(3_600_000L, entry.durationMs)
-    }
-
-    @Test
-    fun infuseReturnIsSavedForItsOriginalProfile() = runBlocking {
-        val original = session(profileId = 99)
-        recordExternalPlaybackProgress(infuseResult(1800, null, original), fallbackSession = session())
-        val entries = WatchProgressCodec.decodeEntries(assertNotNull(WatchProgressStorage.loadPayload(99)))
-        assertEquals(1_800_000L, entries.single().lastPositionMs)
-        assertTrue(WatchProgressRepository.uiState.value.entries.isEmpty())
     }
 
     @Test
@@ -122,22 +91,6 @@ class ExternalPlaybackProgressTest {
     fun mxPlayerCompletionWithoutPositionIsDroppedOnErrorResult() {
         val returned = Intent().apply { putExtra("end_by", "playback_completion") }
         assertNull(ExternalPlayerActivityContract().parseResult(Activity.RESULT_FIRST_USER, returned))
-    }
-
-    private fun infuseResult(
-        positionSeconds: Int,
-        durationMs: Long?,
-        playbackSession: WatchProgressPlaybackSession = session(),
-    ): ExternalPlaybackResult {
-        val callbacks = InfusePlaybackCallbacks(
-            load = PlayerSettingsStorage::loadPendingExternalPlayback,
-            save = PlayerSettingsStorage::savePendingExternalPlayback,
-        )
-        val launch = Url(callbacks.prepare(ExternalPlayerPlaybackRequest(
-            sourceUrl = source, title = "Movie", playbackSession = playbackSession, durationMs = durationMs,
-        )))
-        callbacks.handleUrl("${launch.parameters["x-success"]}?lastPlayedUrl=${source.encodeURLParameter()}&position=$positionSeconds")
-        return assertNotNull(callbacks.results.value?.playbackResult())
     }
 
     private fun clearPreferences() {

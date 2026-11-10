@@ -604,9 +604,6 @@
     <string name="settings_licenses_attributions_mdblist_body">Nuvio utilise MDBList pour les notes, l’historique de visionnage et le suivi de lecture. Nuvio n’est ni affilié à MDBList ni approuvé par MDBList.</string>
     <string name="settings_licenses_attributions_introdb_title">IntroDB</string>
     <string name="settings_licenses_attributions_introdb_body">Nuvio utilise l’API IntroDB pour les repères temporels d’intro, de résumé, de générique et d’aperçu fournis par la communauté et utilisés par les commandes de saut. Nuvio n’est ni affilié à IntroDB ni approuvé par IntroDB.</string>
-    <string name="settings_licenses_attributions_mpvkit_title">MPVKit</string>
-    <string name="settings_licenses_attributions_mpvkit_body">Utilisé pour la lecture sur les versions iOS.</string>
-    <string name="settings_licenses_attributions_mpvkit_license">Le code source MPVKit seul est distribué sous LGPL v3.0. Les bundles MPVKit, y compris les bibliothèques libmpv et FFmpeg, sont également distribués sous LGPL v3.0.</string>
     <string name="settings_licenses_attributions_exoplayer_title">AndroidX Media3 ExoPlayer 1.8.0</string>
     <string name="settings_licenses_attributions_exoplayer_body">Utilisé pour la lecture sur les versions Android.</string>
     <string name="settings_licenses_attributions_exoplayer_license">Distribué sous la licence Apache, version 2.0.</string>
@@ -685,8 +682,6 @@
     <string name="settings_appearance_app_language">Langue de l’application</string>
     <string name="settings_appearance_app_language_device">Langue de l’appareil</string>
     <string name="settings_appearance_app_language_sheet_title">Choisir la langue</string>
-    <string name="settings_appearance_app_language_restart_title">Redémarrage requis</string>
-    <string name="settings_appearance_app_language_restart_message">Fermez puis rouvrez l’application pour mettre à jour la disposition pour cette langue.</string>
     <string name="settings_appearance_nav_bar_style">Barre de navigation</string>
     <string name="settings_appearance_nav_bar_style_sheet_title">Style de la barre de navigation</string>
     <string name="settings_nav_bar_glow">Lueur du verre</string>
@@ -701,8 +696,6 @@
     <string name="settings_nav_bar_style_compact">Toujours compact</string>
     <string name="settings_nav_bar_style_classic">Classique</string>
     <string name="settings_appearance_continue_watching_description">Paramètres de la section Continuer à regarder.</string>
-    <string name="settings_appearance_liquid_glass">Liquid Glass</string>
-    <string name="settings_appearance_liquid_glass_description">Utilise la barre d’onglets native iPhone sur iOS 26 et versions ultérieures.</string>
     <string name="settings_appearance_poster_customization_description">Ajuster la largeur et le rayon des coins des cartes.</string>
     <string name="settings_appearance_section_display">AFFICHAGE</string>
     <string name="settings_appearance_section_home">ACCUEIL</string>
@@ -1092,14 +1085,12 @@
     <string name="settings_playback_enable_libass">Utiliser libass pour les sous-titres ASS/SSA</string>
     <string name="settings_playback_enable_libass_description">Expérimental&#160;: rendu ASS/SSA avancé (styles, positionnement, animations)</string>
     <string name="settings_playback_external_player">Lecteur externe</string>
-    <string name="settings_playback_external_player_app">Application de lecteur externe</string>
     <string name="settings_playback_external_player_description_android">Ouvre les nouvelles lectures avec l’application vidéo par défaut d’Android ou le sélecteur système.</string>
     <string name="settings_playback_external_player_description_ios">Ouvre les nouvelles lectures avec le lecteur installé sélectionné.</string>
     <string name="settings_playback_external_player_forward_subtitles">Transmettre les sous-titres au lecteur externe</string>
     <string name="settings_playback_external_player_forward_subtitles_description">Récupère les sous-titres d’addons dans votre langue préférée et les transmet au lecteur externe.</string>
     <string name="settings_playback_external_player_send_skip_segments">Envoyer les repères temporels d’intro et d’outro</string>
     <string name="settings_playback_external_player_send_skip_segments_description">Envoyer tous les repères de saut disponibles pour les épisodes et les films. Le lecteur externe gère le saut, indépendamment de ces paramètres.</string>
-    <string name="settings_playback_external_player_none_available">Aucun lecteur externe compatible n’est installé</string>
     <string name="settings_playback_player_preference">Lecteur</string>
     <string name="settings_playback_player_preference_internal">Interne</string>
     <string name="settings_playback_player_preference_external">Externe</string>
@@ -2040,49 +2031,8 @@
     <string name="unit_bytes_gb">Go</string>
     <!-- PlayerControls a11y -->
     <string name="player_action_submit_intro">Soumettre l’intro</string>
-    <string name="player_action_video_settings">Paramètres vidéo</string>
     <!-- CloudLibrary -->
     <string name="cloud_library_provider_unavailable">La bibliothèque cloud n’est pas disponible pour %1$s.</string>
-    <!-- Player iOS video settings modal -->
-    <string name="player_video_settings_title">Vidéo</string>
-    <string name="player_video_settings_reset_tuning">Réinitialiser le réglage</string>
-    <string name="player_video_settings_output_preset">Préréglage de sortie</string>
-    <string name="player_video_settings_hdr_peak_detection">Détection du pic HDR</string>
-    <string name="player_video_settings_hdr_peak_detection_desc">Estime le pic de luminosité HDR quand les métadonnées sont absentes ou erronées.</string>
-    <string name="player_video_settings_tone_mapping">Tone mapping</string>
-    <string name="player_video_settings_deband">Deband</string>
-    <string name="player_video_settings_deband_desc">Réduit le banding des couleurs au prix d’une légère baisse de performances.</string>
-    <string name="player_video_settings_interpolation">Interpolation d’images</string>
-    <string name="player_video_settings_interpolation_desc">Lisse le mouvement quand mpv peut utiliser la synchronisation d’affichage proprement.</string>
-    <string name="player_video_settings_brightness">Luminosité</string>
-    <string name="player_video_settings_contrast">Contraste</string>
-    <string name="player_video_settings_saturation">Saturation</string>
-    <string name="player_video_settings_gamma">Gamma</string>
-    <!-- iOS video output presets -->
-    <string name="player_ios_preset_native_edr_label">Native EDR</string>
-    <string name="player_ios_preset_native_edr_desc">Optimal pour les iPhones et iPads compatibles HDR.</string>
-    <string name="player_ios_preset_sdr_tone_mapped_label">SDR avec tone mapping</string>
-    <string name="player_ios_preset_sdr_tone_mapped_desc">Blancs et noirs plus prévisibles sur une sortie de type SDR.</string>
-    <string name="player_ios_preset_compatibility_label">Compatibilité</string>
-    <string name="player_ios_preset_compatibility_desc">Au plus près de l’ancien comportement MPV iOS.</string>
-    <string name="player_ios_preset_custom_label">Personnalisé</string>
-    <string name="player_ios_preset_custom_desc">Utilisez vos valeurs avancées ci-dessous.</string>
-    <string name="player_ios_hardware_decoder_off">Désactivé</string>
-    <!-- Playback settings iOS video output -->
-    <string name="settings_playback_ios_video_output">SORTIE VIDÉO iOS</string>
-    <string name="settings_playback_ios_hardware_decoder">Décodeur matériel</string>
-    <string name="settings_playback_ios_extended_dynamic_range">Plage dynamique étendue</string>
-    <string name="settings_playback_ios_extended_dynamic_range_desc">Mode de sortie Metal par défaut pour les nouvelles sessions de lecture.</string>
-    <string name="settings_playback_ios_display_color_hint">Indication de couleur d’affichage</string>
-    <string name="settings_playback_ios_display_color_hint_desc">Permettre à mpv de cibler par défaut l’espace colorimétrique de l’écran actif.</string>
-    <string name="settings_playback_ios_target_primaries">Primaires cibles</string>
-    <string name="settings_playback_ios_target_transfer">Transfert cible</string>
-    <!-- Playback settings iOS audio output -->
-    <string name="settings_playback_ios_audio_output_section">SORTIE AUDIO iOS</string>
-    <string name="settings_playback_ios_audio_output">Sortie audio</string>
-    <string name="settings_playback_ios_audio_output_auto_desc">Utilise AudioUnit tant que la sortie AVFoundation est temporairement désactivée.</string>
-    <string name="settings_playback_ios_audio_output_avfoundation_desc">Prise en charge expérimentale de l’audio spatial et de la sortie multicanal.</string>
-    <string name="settings_playback_ios_audio_output_audiounit_desc">Utilise l’ancienne sortie AudioUnit.</string>
     <!-- Debrid Result Management section -->
     <string name="settings_debrid_section_result_management">GESTION DES RÉSULTATS</string>
     <string name="settings_debrid_max_results">Nombre maximal de résultats</string>
@@ -2181,11 +2131,6 @@
     <string name="submit_intro_end_time">FIN (MM:SS)</string>
     <string name="submit_intro_submit">Soumettre</string>
     <string name="submit_intro_capture">Capturer</string>
-    <!-- iOS advanced playback -->
-    <string name="settings_playback_ios_hw_decoder_dialog">Décodeur matériel</string>
-    <string name="settings_playback_ios_audio_output_dialog">Sortie audio</string>
-    <string name="settings_playback_ios_target_primaries_dialog">Primaires cibles</string>
-    <string name="settings_playback_ios_target_transfer_dialog">Transfert cible</string>
     <!-- Collection editor -->
     <string name="collections_editor_resolved_trakt_list">Liste Trakt identifiée</string>
     <string name="collections_editor_tmdb_discover">Découverte TMDB</string>
@@ -2243,17 +2188,12 @@
     <string name="details_runtime_hours_minutes">%1$d h %2$d min</string>
     <string name="details_runtime_hours_only">%1$d h</string>
     <string name="details_runtime_minutes_only">%1$d min</string>
-    <string name="downloads_error_finalize_file_failed">Impossible de finaliser le fichier téléchargé</string>
-    <string name="downloads_error_open_partial_file_failed">Impossible d’ouvrir le fichier de téléchargement partiel</string>
-    <string name="downloads_error_partial_file_not_open">Le fichier de téléchargement partiel n’est pas ouvert</string>
-    <string name="downloads_error_write_partial_file_failed">Impossible d’écrire dans le fichier de téléchargement partiel</string>
     <string name="library_local_tab_title">Bibliothèque Nuvio</string>
     <string name="network_connection_issue">Problème de connexion</string>
     <string name="network_empty_response_body">Réponse vide</string>
     <string name="network_please_check_connection">Vérifiez votre connexion et réessayez.</string>
     <string name="network_request_failed_http">La requête a échoué avec HTTP %1$d</string>
     <string name="player_addon_subtitle_display_format">%1$s (%2$s)</string>
-    <string name="player_error_mpv_unavailable">Moteur de lecture MPV indisponible. Veuillez reconstruire l’application.</string>
     <string name="player_error_unable_to_play_stream">Impossible de lire ce flux.</string>
     <string name="plugins_badge_disabled">Plugins désactivés</string>
     <string name="plugins_badge_enabled">Plugins activés</string>

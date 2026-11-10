@@ -9,7 +9,7 @@ turns them into a browsable library with a built-in player, progress sync and tr
 ```
 :androidApp   Android application (APK). Thin shell: manifest, flavors, signing, Sentry,
               launcher-icon alias activities. Depends on :composeApp.
-:composeApp   Kotlin Multiplatform library. Only the Android target remains, but code is still
+:composeApp   Kotlin Multiplatform library with a single Android target. Code is still
               split into commonMain (shared logic + Compose UI) and androidMain (`actual`s).
 ```
 

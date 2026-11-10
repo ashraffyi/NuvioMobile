@@ -135,7 +135,7 @@ private val PosterZoomMenuSpring = spring<Float>(
 )
 
 /**
- * Apple-style long-press preview: the pressed poster lifts off the shelf and
+ * Long-press preview: the pressed poster lifts off the shelf and
  * springs to the centre of the screen, the app content behind is blurred and
  * dimmed, and an action menu cascades in underneath. Destructive actions burn
  * the centred poster away with [DisintegratingContainer] instead of zooming back.

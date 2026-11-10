@@ -27,7 +27,6 @@ import com.nuvio.app.features.player.PlayerSettingsRepository
 import com.nuvio.app.features.player.SubtitleLanguageOption
 import com.nuvio.app.features.player.languageLabelForCode
 import com.nuvio.app.features.player.toStorageHexString
-import com.nuvio.app.isIos
 import nuvio.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
 import com.nuvio.app.features.player.PlayerSettingsUiState
@@ -125,7 +124,7 @@ internal fun PlaybackSubtitleSettings(
                 enabled = subtitleRenderingEnabled,
                 onStyleChanged = PlayerSettingsRepository::setSubtitleStyle,
             )
-            val showLibassSettings = !isIos && settings.androidPlaybackEngine != AndroidPlaybackEngine.Libmpv
+            val showLibassSettings = settings.androidPlaybackEngine != AndroidPlaybackEngine.Libmpv
             if (showLibassSettings) {
                 SettingsGroup(isTablet = isTablet) {
                     SettingsSwitchRow(

@@ -10,25 +10,10 @@ sealed interface AppRoute : NavKey {
 
     val subtitle: String?
         get() = null
-
-    /** Full-screen destinations such as the video player keep native navigation chrome hidden. */
-    val hidesNavigationBar: Boolean
-        get() = false
-
-    /** Stable enough to apply Navigation 3 launchSingleTop semantics in SwiftUI. */
-    val navigationIdentity: String
-        get() = toString()
-
-    /** Lets an explicitly cross-tab route select its native SwiftUI stack. */
-    val preferredTabName: String?
-        get() = null
 }
 
 @Serializable
-sealed interface SettingsDestinationRoute : AppRoute {
-    override val preferredTabName: String
-        get() = "Settings"
-}
+sealed interface SettingsDestinationRoute : AppRoute
 
 @Serializable
 data object TabsRoute : AppRoute
@@ -63,13 +48,6 @@ data class EntityBrowseRoute(
         get() = entityName
 }
 
-/** A settings leaf promoted from the former in-screen page state machine. */
-@Serializable
-data class SettingsPageRoute(
-    val pageName: String,
-    override val title: String,
-) : SettingsDestinationRoute
-
 @Serializable
 data class HomescreenSettingsRoute(override val title: String = "") : SettingsDestinationRoute
 
@@ -86,16 +64,7 @@ data class PartyRoute(
 ) : SettingsDestinationRoute
 
 @Serializable
-data class DownloadsRoute(override val title: String = "") : AppRoute {
-    override val preferredTabName: String
-        get() = "Library"
-}
-
-@Serializable
-data class DownloadShowRoute(
-    val showId: String,
-    override val title: String,
-) : AppRoute
+data class DownloadsRoute(override val title: String = "") : AppRoute
 
 @Serializable
 data class AddonsSettingsRoute(override val title: String = "") : SettingsDestinationRoute
@@ -122,13 +91,6 @@ data class CollectionEditorRoute(
 ) : AppRoute
 
 @Serializable
-data class CollectionEditorPageRoute(
-    val collectionId: String? = null,
-    val pageName: String,
-    override val title: String,
-) : AppRoute
-
-@Serializable
 data class FolderDetailRoute(
     val collectionId: String,
     val folderId: String,
@@ -152,7 +114,4 @@ data class CatalogRoute(
 data class PlayerRoute(
     val launchId: Long,
     override val title: String = "",
-) : AppRoute {
-    override val hidesNavigationBar: Boolean
-        get() = true
-}
+) : AppRoute

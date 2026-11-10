@@ -6,7 +6,6 @@ import androidx.compose.runtime.remember
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.nuvio.app.features.p2p.P2pSettingsRepository
 import com.nuvio.app.features.player.PlayerSettingsRepository
-import com.nuvio.app.isIos
 import org.jetbrains.compose.resources.stringResource
 
 internal fun LazyListScope.playbackSettingsContent(
@@ -21,7 +20,7 @@ internal fun LazyListScope.playbackSettingsContent(
         }.collectAsStateWithLifecycle()
         when (page) {
             SettingsPage.Playback -> {
-                val sections = visiblePlaybackSections(isIos, settings.androidPlaybackEngine, P2pSettingsRepository.isVisible)
+                val sections = visiblePlaybackSections(settings.androidPlaybackEngine, P2pSettingsRepository.isVisible)
                 SettingsGroup(isTablet = isTablet) {
                     sections.forEachIndexed { index, section ->
                         if (index > 0) SettingsGroupDivider(isTablet = isTablet)
@@ -42,7 +41,7 @@ internal fun LazyListScope.playbackSettingsContent(
             SettingsPage.PlaybackAudio -> PlaybackAudioSettings(isTablet, settings)
             SettingsPage.PlaybackSubtitles -> PlaybackSubtitleSettings(isTablet, settings)
             SettingsPage.PlaybackVideo -> PlaybackVideoSettings(isTablet, settings)
-            SettingsPage.PlaybackBuffer -> if (!isIos) PlaybackBufferSettings(isTablet, settings)
+            SettingsPage.PlaybackBuffer -> PlaybackBufferSettings(isTablet, settings)
             SettingsPage.PlaybackP2p -> if (P2pSettingsRepository.isVisible) PlaybackP2pSettings(isTablet)
             else -> Unit
         }
