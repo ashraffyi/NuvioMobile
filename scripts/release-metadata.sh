@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-version_file="${VERSION_FILE:-iosApp/Configuration/Version.xcconfig}"
+version_file="${VERSION_FILE:-version.properties}"
 target_ref="${1:-HEAD}"
 
 if ! git cat-file -e "${target_ref}^{commit}" 2>/dev/null; then
@@ -10,11 +10,20 @@ if ! git cat-file -e "${target_ref}^{commit}" 2>/dev/null; then
     exit 1
 fi
 
+legacy_version_file="iosApp/Configuration/Version.xcconfig"
+
 read_version() {
     local commit="$1"
-    git show "${commit}:${version_file}" \
-        | sed -nE 's/^[[:space:]]*MARKETING_VERSION[[:space:]]*=[[:space:]]*([^[:space:]#]+).*$/\1/p' \
-        | head -n 1
+    if git cat-file -e "${commit}:${version_file}" 2>/dev/null; then
+        git show "${commit}:${version_file}" \
+            | sed -nE 's/^[[:space:]]*APP_VERSION_NAME[[:space:]]*=[[:space:]]*([^[:space:]#]+).*$/\1/p' \
+            | head -n 1
+    elif git cat-file -e "${commit}:${legacy_version_file}" 2>/dev/null; then
+        # History from before the Android-only split kept the version in the iOS xcconfig.
+        git show "${commit}:${legacy_version_file}" \
+            | sed -nE 's/^[[:space:]]*MARKETING_VERSION[[:space:]]*=[[:space:]]*([^[:space:]#]+).*$/\1/p' \
+            | head -n 1
+    fi
 }
 
 current_version=""
@@ -34,7 +43,7 @@ while IFS= read -r commit; do
         previous_bump="$commit"
         break
     fi
-done < <(git log "$target_ref" --format='%H' -- "$version_file")
+done < <(git log "$target_ref" --format='%H' -- "$version_file" "$legacy_version_file")
 
 if [[ -z "$current_bump" || -z "$previous_bump" ]]; then
     echo "Could not find two distinct version bumps in ${version_file}." >&2
